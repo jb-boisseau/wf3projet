@@ -1,10 +1,10 @@
 <?php
-//on utilise des composants Symfony qui vont nous permettre d'avoir des erreurs plus précises
+// On utilise des composants Symfony qui vont nous permettre d'avoir des erreurs plus précises
 use Symfony\Component\Debug\ErrorHandler;
 use Symfony\Component\Debug\ExceptionHandler;
 use Silex\Provider;
 
-//On enregistre ces services dans l'application Silex
+// On enregistre ces services dans l'application Silex
 ErrorHandler::register();
 ExceptionHandler::register();
 
@@ -45,7 +45,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
 ));
 
 
-//service web profiler de symfony
+// Service web profiler de symfony
 $app->register(new Provider\WebProfilerServiceProvider(), array(
     'profiler.cache_dir' => __DIR__.'/../cache/profiler',
     'profiler.mount_prefix' => '/_profiler', // this is the default

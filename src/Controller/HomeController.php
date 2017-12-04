@@ -17,14 +17,14 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class HomeController{
 
-	//page d'accueil qui affiche tout les articles
+	// Page d'accueil qui affiche tous les articles
 	public function homePageAction(Application $app){
 		$articles = $app['dao.article']->getArticlesWithAuthor();
 
 	 	return $app['twig']->render('index.html.twig', array('articles' => $articles));
 	}
     
-    //page de recherche par auteur
+    // Page de recherche par auteur
     public function rechercheAction(Application $app, Request $request){
         
         $articles =[];

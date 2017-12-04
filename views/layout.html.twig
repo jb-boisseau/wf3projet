@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('../web/css/agency.min.css') }}">
 	<title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -16,20 +16,13 @@
                 <li><a href="{{ path('home') }}">Accueil</a></li>
                 <li><a href="{{ path('usersList') }}">Qui sommes nous</a></li>
                 <li><a href="{{ path('lastArticles') }}">Nos spectacles</a></li>
-                <li><a href="{{ path('agenda') }}">Agenda></li>
-                <li><a href="{{ path('presse') }}">Presse></li>
-                 <li><a href="{{ path('contact') }}">Contact></li>
-                <li><a href="{{ path('contactezmoi') }}">Contact</a></li>
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <li><a href="{{ path('homeAdmin') }}">administration</a></li>
-                    {% endif %}
-					<li><a href="{{ path('logout') }}">déconnexion</a></li>
-				{% else %}
-					<li><a href="{{ path('login') }}">connexion</a></li>
-                {% endif %}
+                
             </ul>
         </nav>
+		<div class="col-md-12">
+            <li><a href="{{ path('rechercheParAuteur') }}">rechercher</a></li>
+            {% block content %}{% endblock %}
+		</div>
 		<footer class="footer">
 		</footer>
 	</div>

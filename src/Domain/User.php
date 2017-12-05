@@ -123,8 +123,8 @@ class User implements UserInterface
     
     public function setPhoto()
     {
-        $this->getPhoto = $photo());
-        return $this
+        $this->getPhoto = $photo;
+        return $this;
     }
     
      public function getPhoto()

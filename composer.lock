@@ -1203,6 +1203,18 @@
         },
         {
             "name": "symfony/form",
+<<<<<<< HEAD
+            "version": "v3.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/form.git",
+                "reference": "23f95e189f084adefa69a7e3f0c94fec7f754f58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/form/zipball/23f95e189f084adefa69a7e3f0c94fec7f754f58",
+                "reference": "23f95e189f084adefa69a7e3f0c94fec7f754f58",
+=======
             "version": "v3.3.0",
             "source": {
                 "type": "git",
@@ -1213,6 +1225,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/form/zipball/ec93c53759d68ef9fd764a5669adad4d0b7c40ea",
                 "reference": "ec93c53759d68ef9fd764a5669adad4d0b7c40ea",
+>>>>>>> edc06f0c84535c579dbd130b9857474a472c9f82
                 "shasum": ""
             },
             "require": {
@@ -1233,6 +1246,17 @@
             },
             "require-dev": {
                 "doctrine/collections": "~1.0",
+<<<<<<< HEAD
+                "symfony/config": "~2.7|~3.0|~4.0",
+                "symfony/console": "~3.4|~4.0",
+                "symfony/dependency-injection": "~3.3|~4.0",
+                "symfony/http-foundation": "~2.8|~3.0|~4.0",
+                "symfony/http-kernel": "^3.3.5|~4.0",
+                "symfony/security-csrf": "~2.8|~3.0|~4.0",
+                "symfony/translation": "~2.8|~3.0|~4.0",
+                "symfony/validator": "^3.2.5|~4.0",
+                "symfony/var-dumper": "~3.3.11|~3.4|~4.0"
+=======
                 "symfony/config": "~2.7|~3.0",
                 "symfony/dependency-injection": "~3.3",
                 "symfony/http-foundation": "~2.8|~3.0",
@@ -1241,6 +1265,7 @@
                 "symfony/translation": "~2.8|~3.0",
                 "symfony/validator": "^2.8.18|^3.2.5",
                 "symfony/var-dumper": "~3.3"
+>>>>>>> edc06f0c84535c579dbd130b9857474a472c9f82
             },
             "suggest": {
                 "symfony/framework-bundle": "For templating with PHP.",
@@ -1278,7 +1303,11 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+            "time": "2017-12-03T21:15:09+00:00"
+=======
             "time": "2017-05-29T18:50:47+00:00"
+>>>>>>> edc06f0c84535c579dbd130b9857474a472c9f82
         },
         {
             "name": "symfony/http-foundation",
@@ -1481,6 +1510,18 @@
         },
         {
             "name": "symfony/intl",
+<<<<<<< HEAD
+            "version": "v4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/intl.git",
+                "reference": "6bf27029c01e1010de96ab224d2315b3a17e0522"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/6bf27029c01e1010de96ab224d2315b3a17e0522",
+                "reference": "6bf27029c01e1010de96ab224d2315b3a17e0522",
+=======
             "version": "v3.4.1",
             "source": {
                 "type": "git",
@@ -1491,6 +1532,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/intl/zipball/1759b9944e45c09e05683ccf172e2bcb58a35893",
                 "reference": "1759b9944e45c09e05683ccf172e2bcb58a35893",
+>>>>>>> edc06f0c84535c579dbd130b9857474a472c9f82
                 "shasum": ""
             },
             "require": {
@@ -1552,11 +1594,19 @@
                 "l10n",
                 "localization"
             ],
+<<<<<<< HEAD
+            "time": "2017-12-01T20:03:44+00:00"
+        },
+        {
+            "name": "symfony/options-resolver",
+            "version": "v4.0.1",
+=======
             "time": "2017-11-19T18:41:20+00:00"
         },
         {
             "name": "symfony/options-resolver",
             "version": "v3.4.1",
+>>>>>>> edc06f0c84535c579dbd130b9857474a472c9f82
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -1894,7 +1944,9 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v3.4.1",
+
+            "version": "v4.0.1",
+
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
@@ -2311,16 +2363,18 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v3.3.2",
+
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/twig-bridge.git",
-                "reference": "7f1bc6676396441dc938dc4dacb49ae91f56b930"
+                "reference": "cc30b5622ac7ac50e31de5c904c840ba502df1aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/7f1bc6676396441dc938dc4dacb49ae91f56b930",
-                "reference": "7f1bc6676396441dc938dc4dacb49ae91f56b930",
+                "url": "https://api.github.com/repos/symfony/twig-bridge/zipball/cc30b5622ac7ac50e31de5c904c840ba502df1aa",
+                "reference": "cc30b5622ac7ac50e31de5c904c840ba502df1aa",
+
                 "shasum": ""
             },
             "require": {
@@ -2329,12 +2383,16 @@
             },
             "require-dev": {
                 "fig/link-util": "^1.0",
-                "symfony/asset": "~2.8|~3.0",
-                "symfony/console": "~2.8|~3.0",
-                "symfony/expression-language": "~2.8|~3.0",
-                "symfony/finder": "~2.8|~3.0",
-                "symfony/form": "^3.2.7",
-                "symfony/http-kernel": "~3.2",
+
+                "symfony/asset": "~2.8|~3.0|~4.0",
+                "symfony/console": "~3.4|~4.0",
+                "symfony/dependency-injection": "~2.8|~3.0|~4.0",
+                "symfony/expression-language": "~2.8|~3.0|~4.0",
+                "symfony/finder": "~2.8|~3.0|~4.0",
+                "symfony/form": "~3.4|~4.0",
+                "symfony/http-foundation": "^3.3.11|~4.0",
+                "symfony/http-kernel": "~3.2|~4.0",
+
                 "symfony/polyfill-intl-icu": "~1.0",
                 "symfony/routing": "~2.8|~3.0",
                 "symfony/security": "~2.8|~3.0",
@@ -2391,7 +2449,9 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2017-06-06T03:13:52+00:00"
+
+            "time": "2017-12-04T19:58:42+00:00"
+
         },
         {
             "name": "symfony/validator",

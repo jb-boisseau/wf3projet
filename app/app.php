@@ -78,7 +78,6 @@ $app['dao.spectacle'] = function($app){
 	$spectacleDAO = new WF3\DAO\SpectacleDAO($app['db'], 'spectacle', 'WF3\Domain\Spectacle');
     //on injecte dans $articleDAO une instance de la classe UserDAO : injection de dépendance
     //elle est faite une seule fois, ici
-    $spectacleDAO->setUserDAO($app['dao.user']);
     return $spectacleDAO;
 };
 

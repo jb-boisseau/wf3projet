@@ -3,7 +3,7 @@
 
 		{% block content %}
             <h2>Seurche angine</h2>
-            <form action="{{ path('rechercheParTitre')}}">
+            <form action="">
                 <input type="text" name="title">
                 <button type="submit">Rechercher</button>
             </form>
@@ -14,18 +14,7 @@
                     {{ flashMessage }}
                 </div>
             {% endfor %}          
-			{% for article in articles %}
-			<article>
-				<h2>{{ article.title }}</h2>
-				<p>publié par 
-					<a href="{{ path('voirUser', {id: article.idUser}) }}">
-						{{ article.username }}
-					</a>
-				</p>
-				<p>{{ article.content }}</p>
-				<p><a href="{{ path('voirArticle', {id: article.idArticle}) }}">Voir</a> | <a href="{{ path('deleteArticle', {id: article.idArticle}) }}">Supprimer</a></p>
-			</article>
-			{% endfor %}
+			
 		{% endblock %}
 
 		{# commentaires #}

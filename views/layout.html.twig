@@ -8,19 +8,22 @@
 <body>
 	<div class="container">
 		<header>
-			<img src="{{ asset('elandy.jpg') }}" class="img img-responsive img-rounded" width="150">
+			<img src="{{ asset('/image/logo.jpg') }}" class="img img-responsive img-rounded" width="300">
             <h1>La Cité's Compagnie</h1>
 		</header>
         <nav class="nav nav-bar">
             <ul>
-                <li><a href="{{ path('home') }}">Accueil</a></li>
-                <li><a href="{{ path('usersList') }}">Qui sommes nous</a></li>
-                <li><a href="{{ path('lastArticles') }}">Nos spectacles</a></li>
+                {#<li><a href="{{ path('home') }}">Accueil</a></li>
+                <li><a href="{{ path('quisommesnous') }}">Qui sommes nous</a></li>
+                <li><a href="{{ path('nosspectacles') }}">Nos spectacles</a></li>
+                <li><a href="{{ path('agenda') }}">Agenda</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
+                <li><a href="{{ path('presse') }}">Presse</a></li>#}
                 
             </ul>
         </nav>
 		<div class="col-md-12">
-            <li><a href="{{ path('rechercheParAuteur') }}">rechercher</a></li>
+            <li><a href="">Rechercher</a></li>
             {% block content %}{% endblock %}
 		</div>
 		<footer class="footer">

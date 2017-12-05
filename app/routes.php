@@ -2,7 +2,7 @@
 // ce fichier contient la liste des routes = url ) que l'on va accepter
 //silex va parcourir les routes de haut en bas et s'arrête à la première qui correspond
 
-//page d'accueil qui affiche tout les articles
+//page d'accueil qui affiche tous les articles
 $app->get('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
 //bind permet de nommer une route
 //on peut alors appeler cette route dans une vue twig pour générer l'url correspondante

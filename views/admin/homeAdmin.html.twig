@@ -1,7 +1,9 @@
+{% extends "layout.html.twig" %}
+
 {% block title %}Admin{% endblock %} 
 
 {% block content %}
-<h2>Bonjour</h2>
+<h2>Administration :</h2>
 
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="alert alert-success">
@@ -10,14 +12,14 @@
 {% endfor %}
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
         <a href="{{ path('ajoutSpectacle') }}">
             <button class="btn btn-info">Ajouter un Spectacle</button>
         </a>
         <ul>
             {% for spectacle in spectacles %}
                 <li>{{ spectacle.title}}</li>
-                <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> |
+                <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> | <a href="{{ path('updateSpectacle', {id: spectacle.id})}}">Modifier</a>
             {% endfor %}
         </ul>
 

@@ -16,11 +16,11 @@ $app->get('/admin', 'WF3\Controller\AdminController::indexAction')->bind('homeAd
 $app->match('/admin/ajoutSpectacle', 'WF3\Controller\AdminController::ajoutSpectacleAction')->bind('ajoutSpectacle');
 
 //Supprimer un spectacle :
-$app->get('/deleteSpectacle/{id}', 'WF3\Controller\AdminController::deleteSpectacleAction')
+$app->get('/admin/deleteSpectacle/{id}', 'WF3\Controller\AdminController::deleteSpectacleAction')
 ->assert('id', '\d+')
 ->bind('deleteSpectacle');
 
 //modification d'un spectacle dans l'admin :
-$app->match('/admin/updateArticle/{id}', 'WF3\Controller\AdminController::updateSpectacleAction')
+$app->match('/admin/updateSpectacle/{id}', 'WF3\Controller\AdminController::updateSpectacleAction')
 ->assert('id', '\d+')
 ->bind('updateSpectacle');

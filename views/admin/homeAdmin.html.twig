@@ -3,7 +3,7 @@
 {% block title %}Admin{% endblock %} 
 
 {% block content %}
-<h2>Administration :</h2>
+
 
 {% for flashMessage in app.session.flashbag.get('success') %}
     <div class="alert alert-success">
@@ -11,18 +11,38 @@
     </div>
 {% endfor %}
 
-<div class="row">
-    <div class="col-md-8">
-        <a href="{{ path('ajoutSpectacle') }}">
-            <button class="btn btn-info">Ajouter un Spectacle</button>
-        </a>
-        <ul>
-            {% for spectacle in spectacles %}
-                <li>{{ spectacle.title}}</li>
-                <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> | <a href="{{ path('updateSpectacle', {id: spectacle.id})}}">Modifier</a>
-            {% endfor %}
-        </ul>
-
-    </div>
-</div>
+    <section id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading text-uppercase">Administration</h2>
+              <h3 class="section-subheading text-muted">Gestion des spectacles et des réservations.</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="col-lg-12 text-center">
+                        <a href="{{ path('ajoutSpectacle') }}">
+                            <button class="btn btn-primary btn-xl text-uppercase">Ajout d'un Spectacle</button>
+                        </a>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        {% for spectacle in spectacles %}
+                            <li class="section-subheading text-muted">{{ spectacle.title}}</li>
+                            <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> | <a href="{{ path('updateSpectacle', {id: spectacle.id})}}">Modifier</a>
+                        {% endfor %}
+                    </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
 {% endblock %}
+

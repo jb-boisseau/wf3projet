@@ -8,3 +8,6 @@ $app->get('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
 
 //Page Menu admin :
 $app->get('/admin', 'WF3\Controller\AdminController::indexAction')->bind('homeAdmin');
+
+//Ajout d'un Spectacle :
+$app->match('/admin/ajoutSpectacle', 'WF3\Controller\AdminController::ajoutSpectacleAction')->bind('ajoutSpectacle');

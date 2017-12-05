@@ -2,12 +2,14 @@
 namespace WF3\Domain;
 
 class Spectacle{
+
+
     //déclaration des attributs
     private $id;
     private $title;
     private $content;
-    private $date_venue;
-    private $nb_tickets;
+    private $dateVenue;
+    private $nbTickets;
     private $place;
     private $type;
 
@@ -29,12 +31,12 @@ class Spectacle{
         return $this->content;
     }
     
-    public function getDate_venue(){
-        return $this->date_venue;
+    public function getDateVenue(){
+        return $this->dateVenue;
     }
     
-    public function getNb_tickets(){
-        return $this->nb_tickets;
+    public function getNbTickets(){
+        return $this->nbTickets;
     }
 
     public function getPlace(){
@@ -71,15 +73,15 @@ class Spectacle{
         }
     }
 
-    public function setDate_venue($date_venue){
+    public function setDateVenue($date_venue){
         if(!empty($date_venue) AND is_string($date_venue)){
-            $this->date_venue = $date_venue; 
+            $this->dateVenue = $date_venue; 
         }
     }
 
-    public function setNb_tikets($nb_tickets){    
-        if(!empty($nb_tickets) AND is_numeric($nb_tickets)) { 
-            $this->nb_tickets = $nb_tickets;  
+    public function setNbTickets($nbTickets){    
+        if(!empty($nbTickets) AND is_numeric($nbTickets)) { 
+            $this->nbTickets = $nbTickets;  
         }       
     }
 
@@ -90,7 +92,7 @@ class Spectacle{
     }
 
     public function setType($type){    
-        if(!empty($type) && $type == stage OR $type == spectacle){ 
+        if(!empty($type)){ 
             $this->type = $type;  
         }       
     }

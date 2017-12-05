@@ -15,6 +15,8 @@ class AdminController{
         return $app['twig']->render('admin/homeAdmin.html.twig', array('spectacles'=>$spectacles));
     }
 
+
+    //Ajout d'un spectacle :
     public function ajoutSpectacleAction(Application $app, Request $request){
         $spectacle = new Spectacle();
 
@@ -38,4 +40,27 @@ class AdminController{
                 'title' => 'ajout'
         ));
     }
+
+
+    //suppression d'un Spectacle :
+    public function deleteSpectacleAction(Application $app, $id){
+        $spectacle = $app['dao.spectacle']->delete($id);
+        //on crée un message de réussite dans la session
+        $app['session']->getFlashBag()->add('success', 'Représentation bien supprimé');
+        //on redirige vers la page d'accueil
+        return $app->redirect($app['url_generator']->generate('homeAdmin'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

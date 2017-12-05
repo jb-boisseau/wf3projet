@@ -2,6 +2,13 @@
 
 {% block content %}
 <h2>Bonjour</h2>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
 <div class="row">
     <div class="col-md-12">
         <a href="{{ path('ajoutSpectacle') }}">
@@ -10,6 +17,7 @@
         <ul>
             {% for spectacle in spectacles %}
                 <li>{{ spectacle.title}}</li>
+                <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> |
             {% endfor %}
         </ul>
 

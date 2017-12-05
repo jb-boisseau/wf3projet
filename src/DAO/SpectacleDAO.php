@@ -1,7 +1,7 @@
 <?php
 namespace WF3\DAO;
 
-class ArticleDAO extends DAO{
+class SpectacleDAO extends DAO{
 
 	//je crée un attribut qui va contenir un objet de classe UserDAO (la lcasse qui nous permet de manipuler la table users)
 	private $userDAO;

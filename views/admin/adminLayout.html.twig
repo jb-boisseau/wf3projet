@@ -11,7 +11,7 @@
     <title>La Cité's Compagnie</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset ('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -45,7 +45,7 @@
               <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{{path('home')}}#presse">Presse</a>
+              <a class="nav-link js-scroll-trigger" href="#{{path('home')}}about">Presse</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{{path('home')}}#team">Team</a>
@@ -53,30 +53,18 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="{{path('home')}}#contact">Contact</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{{path('homeAdmin')}}">Connexion</a>
-            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Header -->
-    <header class="masthead">
-      <div class="container">
-        <div class="intro-text">
-          <div class="intro-lead-in">La Cité's Compagnie</div>
-            <div class="intro-heading text-uppercase"></div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#commande">Commandez vos places en ligne!</a>
-        </div>
-      </div>
-    </header>
 
+{# Contenu venu des autres pages #}
  {% block content %}
  {% endblock %}
 
 
-    <!-- Footer -->
+
 
     <footer>
       <div class="container">

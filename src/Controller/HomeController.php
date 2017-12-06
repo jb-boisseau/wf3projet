@@ -18,8 +18,10 @@ class HomeController{
 	// Page de reservation 
 
 	public function reservationAction(Application $app, Request $request){
+
         
 	 	return $app['twig']->render('reservation.html.twig', array('test'=>$request->request->get('name')));
+
 	}
     
 }

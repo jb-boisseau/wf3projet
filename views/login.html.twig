@@ -3,11 +3,7 @@
 
 		{% block content %}
 
-        {% if error %}
-        <div class="alert alert-danger">
-            <strong>Login failed!</strong> {{ error }}
-        </div>
-        {% endif %}
+
         <section id="contact">
          <div class="container">
           <div class="row">
@@ -36,6 +32,11 @@
             </form>
         </div>
         </section>
+        {% if error %}
+        <div class="alert alert-danger">
+            <strong>Login failed!</strong> {{ error }}
+        </div>
+        {% endif %}
 		{% endblock %}
 
 		{# commentaires #}

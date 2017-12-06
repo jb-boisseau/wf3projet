@@ -81,6 +81,7 @@ class AdminController{
         //on redirige vers la page d'accueil
     }
     
+    
     //Connexion pour accéder à la page Administration :
     public function loginAction(Application $app, Request $request){
     	//j'appelle la vue qui contient le formulaire de connexion
@@ -93,3 +94,4 @@ class AdminController{
 
 
 }
+

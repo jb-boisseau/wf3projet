@@ -23,5 +23,11 @@ class HomeController{
 	 	return $app['twig']->render('reservation.html.twig', array('test'=>$request->request->get('name')));
 
 	}
-    
+	
+	
+	//page d'accueil du back office
+	public function indexAction(Application $app){
+		$spectacles = $app['dao.spectacle']->findAll();
+		return $app['twig']->render('livredor.html.twig');
+	}
 }

@@ -5,11 +5,7 @@
 {% block content %}
 
 
-{% for flashMessage in app.session.flashbag.get('success') %}
-    <div class="alert alert-success">
-        {{ flashMessage }}
-    </div>
-{% endfor %}
+
 
     <section id="contact">
         <div class="container">
@@ -45,5 +41,12 @@
         </div>
       </div>
     </section>
+
+    {# Message de confirmation #}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
 {% endblock %}
 

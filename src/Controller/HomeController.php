@@ -26,8 +26,7 @@ class HomeController{
 	
 	
 	//page d'accueil du back office
-	public function indexAction(Application $app){
-		$spectacles = $app['dao.spectacle']->findAll();
+	public function livreDorAction(Application $app){
 		return $app['twig']->render('livredor.html.twig');
 	}
 }

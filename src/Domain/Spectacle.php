@@ -74,7 +74,7 @@ class Spectacle{
     }
 
     public function setDateVenue($date_venue){
-        if(!empty($date_venue) AND is_string($date_venue)){
+        if(!empty($date_venue)){
             $this->dateVenue = $date_venue; 
         }
     }

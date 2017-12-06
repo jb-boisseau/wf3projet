@@ -38,19 +38,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#quisommenous">Qui sommes nous</a>
+              <a class="nav-link js-scroll-trigger" href="{{path('home')}}#quisommenous">Qui sommes nous</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#nosspectacles">Nos spectacles</a>
+              <a class="nav-link js-scroll-trigger" href="#{{path('home')}}about">Presse</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="{{path('home')}}#team">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="{{path('home')}}#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -70,8 +71,6 @@
 
  {% block content %}
  {% endblock %}
-
-      
 
 
     <!-- Footer -->

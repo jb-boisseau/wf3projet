@@ -1,5 +1,6 @@
-	{% extends "layout.html.twig" %}
-		{% block title %}Ajout d'une représentation :{% endblock %}
+	{% extends "admin/adminLayout.html.twig" %}
+
+		{% block title %}Ajout d'un spectacle :{% endblock %}
 
 		{% block content %}
 			{% for flashMessage in app.session.flashbag.get('success') %}
@@ -7,6 +8,8 @@
                     {{ flashMessage }}
                 </div>
             {% endfor %}
+
+			
 
             {{ form_start(spectacleForm)}}
             	
@@ -116,3 +119,4 @@
 
 			{{ form_end(spectacleForm)}}
 		{% endblock %}
+

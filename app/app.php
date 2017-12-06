@@ -29,7 +29,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             'pattern' => '^/',
             'anonymous' => true,
             'logout' => true,
-            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+            'form' => array('login_path' => '/login', 'check_path' => '/login_check', 'default_target_path' => '/admin'),
             'users' => function () use ($app) {
                 return new WF3\DAO\UserDAO($app['db'], 'users', 'WF3\Domain\User');
             },

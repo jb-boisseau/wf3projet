@@ -41,6 +41,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     ),
     'security.access_rules' => array(
         array('^/admin1', 'ROLE_ADMIN')
+        array('^/admin', 'ROLE_ADMIN')
     )
 ));
 

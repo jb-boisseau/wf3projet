@@ -1,0 +1,41 @@
+	{% extends "layout.html.twig" %}
+		{% block title %}Login Page{% endblock %}
+
+		{% block content %}
+
+        {% if error %}
+        <div class="alert alert-danger">
+            <strong>Login failed!</strong> {{ error }}
+        </div>
+        {% endif %}
+        <section id="contact">
+         <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="section-heading text-uppercase">Administration</h2>
+              <h3 class="section-subheading text-muted">Connexion Administrateur</h3>
+            </div>
+          </div>
+        <div class="col-lg-12 text-center">
+            <form class="form-signin form-horizontal" role="form" action="{{ path('login_check') }}" method="post">
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                        <input type="text" name="_username" value="{{ last_username }}" class="form-control" placeholder="Nom de compte" required autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                        <input type="password" name="_password" class="form-control" placeholder="Mot de passe" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                        <button type="submit" class="btn btn-default btn-primary">Connexion</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </section>
+		{% endblock %}
+
+		{# commentaires #}

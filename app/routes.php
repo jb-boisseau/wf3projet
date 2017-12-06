@@ -5,9 +5,9 @@
 
 //page d'accueil :
 $app->get('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
-//page de reservation :
 
-$app->match('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
+//page de reservation :
+$app->get('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
 
 
 //Page Menu admin :
@@ -25,3 +25,6 @@ $app->get('/admin/deleteSpectacle/{id}', 'WF3\Controller\AdminController::delete
 $app->match('/admin/updateSpectacle/{id}', 'WF3\Controller\AdminController::updateSpectacleAction')
 ->assert('id', '\d+')
 ->bind('updateSpectacle');
+
+//Connexion pour les administrateurs :
+$app->get('/login', 'WF3\Controller\AdminController::loginAction')->bind('login');

@@ -5,7 +5,8 @@ use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use WF3\Form\Type\SpectacleType;
 use WF3\Domain\Spectacle;
-
+use WF3\Form\Type\LoginType;
+use WF3\Domain\User;
 
 class AdminController{
 
@@ -80,14 +81,15 @@ class AdminController{
         //on redirige vers la page d'accueil
     }
     
-
-
-
-
-
-
-
-
+    //Connexion pour accéder à la page Administration :
+    public function loginAction(Application $app, Request $request){
+    	//j'appelle la vue qui contient le formulaire de connexion
+    	//error va contenir les éventuels messages d'erreur
+    	return $app['twig']->render('login.html.twig', array(
+    		'error' => $app['security.last_error']($request),
+    		'last_username' => $app['session']->get('_security.last_username')
+    	));
+    }
 
 
 }

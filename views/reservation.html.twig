@@ -20,29 +20,29 @@
             
           <div class="col-lg-12">
               
-            <form id="contactForm" name="sentMessage" novalidate>
+            <form method="POST">
                 
               <div class="row">
-                  
+                 <span style="color: white">{{ dump(test)}}</span> 
                 <div class="col-md-6">
                     
                   <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Nom *" required data-validation-required-message="Merci de préciser votre nom svp.">
+                    <input class="form-control" name="name" type="text" placeholder="Nom *" required data-validation-required-message="Merci de préciser votre nom svp.">
                     <p class="help-block text-danger"></p>
                   </div>
                     
                   <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Adresse e-mail *" required data-validation-required-message="Merci de préciser votre adresse e-mail svp.">
+                    <input class="form-control" name="email" type="email" placeholder="Adresse e-mail *" required data-validation-required-message="Merci de préciser votre adresse e-mail svp.">
                     <p class="help-block text-danger"></p>
                   </div>
                     
                   <div class="form-group">
-                    <input class="form-control" id="date" type="date" placeholder="Choisir une date" required data-validation-required-message="Merci de choisir une date svp.">
+                    <input class="form-control" name="date" type="date" placeholder="Choisir une date" required data-validation-required-message="Merci de choisir une date svp.">
                     <p class="help-block text-danger"></p>
                   </div>
                     
                  <div class="form-group">
-                    <input class="form-control" id="ticket" type="number" placeholder="Choisir le nombre de ticket" required data-validation-required-message="Merci de préciser votre adresse e-mail svp.">
+                    <input class="form-control" name="ticket" type="number" placeholder="Choisir le nombre de ticket" required data-validation-required-message="Merci de préciser votre adresse e-mail svp.">
                     <p class="help-block text-danger"></p>
                   </div>
                     
@@ -51,7 +51,7 @@
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Valider la reservation</button>
+                  <button class="btn btn-primary btn-xl text-uppercase" type="submit">Valider la reservation</button>
                 </div>
                   
               </div>

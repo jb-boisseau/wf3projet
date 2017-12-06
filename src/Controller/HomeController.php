@@ -21,7 +21,7 @@ class HomeController{
 	// Page de reservation 
 
 	public function reservationAction(Application $app, Request $request){
-        $request->request
+        //$request->request;
 	 	return $app['twig']->render('reservation.html.twig');
 	}
     

@@ -11,6 +11,10 @@ class HomeController{
 
 	 	return $app['twig']->render('index.html.twig');
 	}
+    // Page d'accueil qui affiche la reservation
+	public function reservationAction(Application $app){
+
+	 	return $app['twig']->render('reservation.html.twig');
+	}
     
-  
 }

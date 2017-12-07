@@ -30,3 +30,5 @@ $app->match('/admin/updateSpectacle/{id}', 'WF3\Controller\AdminController::upda
 
 //Connexion pour les administrateurs :
 $app->get('/login', 'WF3\Controller\AdminController::loginAction')->bind('login');
+
+//Déconnexion pour les administrateurs :

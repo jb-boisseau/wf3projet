@@ -36,3 +36,6 @@ $app->get('/calendar', 'WF3\Controller\HomeController::calendarPageAction')->bin
 
 //Lien vers contact :
 $app->match('/contact', 'WF3\Controller\HomeController::contactAction')->bind('contactezmoi');
+
+
+//Déconnexion pour les administrateurs :

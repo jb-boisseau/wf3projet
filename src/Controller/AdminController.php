@@ -40,7 +40,7 @@ class AdminController{
         ));
     }
 
-
+ 
     //suppression d'un Spectacle :
     public function deleteSpectacleAction(Application $app, $id){
         $spectacle = $app['dao.spectacle']->delete($id);

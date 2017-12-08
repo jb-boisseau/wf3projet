@@ -1,60 +1,65 @@
-{% extends "layout.html.twig" %}
+{% extends "index.html.twig" %}
 
 {% block title %} Contact {% endblock %}
 
-{% block content %}
+{% block contact %}
     
-        <div class="col-sm-6">
-            {% for flashMessage in app.session.flashbag.get('success') %}
-            <div class="alert alert-success">
-                {{ flashMessage }}
-            </div>
-            {% endfor %}
-
-            <div class="contact_form">
-            {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }}
-                <div class="form-group">
-                    {{ form_label(contactForm.email, null) }}
-                    <div>
-                        {{ form_errors(contactForm.email) }}
-                        {{ form_widget(contactForm.email, { 'attr':  {
-                            'class': 'form-control'
-                        }}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(contactForm.name, null) }}
-                    <div>
-                    <div class="alert alert-danger">
-                        {{ form_errors(contactForm.name) }}
-                    </div>
-                        {{ form_widget(contactForm.name, { 'attr':  {
-                            'class': 'form-control'
-                        }}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(contactForm.subject, null) }}
-                    <div>
-                        {{ form_errors(contactForm.subject) }}
-                        {{ form_widget(contactForm.subject, { 'attr':  {
-                            'class': 'form-control'
-                        }}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {{ form_label(contactForm.message, null) }}
-                    <div>
-                        {{ form_errors(contactForm.message) }}
-                        {{ form_widget(contactForm.message, { 'attr':  {
-                            'class': 'form-control'
-                        }}) }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Send" />
-                </div>
-            {{ form_end(contactForm) }}
+    <div class="col-sm-6">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
         </div>
+        {% endfor %}
+
+        <div class="contact_form">
+
+        {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }}
+            <div class="form-group">
+                {{ form_label(contactForm.email, null) }}
+                <div>
+                    {{ form_errors(contactForm.email) }}
+                    {{ form_widget(contactForm.email, { 'attr':  {
+                        'class': 'form-control'
+                    }}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(contactForm.name, null) }}
+                <div>
+                <div class="alert alert-danger">
+                    {{ form_errors(contactForm.name) }}
+                </div>
+                    {{ form_widget(contactForm.name, { 'attr':  {
+                        'class': 'form-control'
+                    }}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(contactForm.subject, null) }}
+                <div>
+                    {{ form_errors(contactForm.subject) }}
+                    {{ form_widget(contactForm.subject, { 'attr':  {
+                        'class': 'form-control'
+                    }}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(contactForm.message, null) }}
+                <div>
+                    {{ form_errors(contactForm.message) }}
+                    {{ form_widget(contactForm.message, { 'attr':  {
+                        'class': 'form-control'
+                    }}) }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-lg" value="Send" />
+            </div>
+        {{ form_end(contactForm) }}
+    </div>
                                 
 {% endblock %}

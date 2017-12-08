@@ -4,10 +4,10 @@
 
 
 //page d'accueil :
-$app->get('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
+$app->match('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
 
 //page de reservation :
-$app->get('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
+$app->match('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
 
 //Livre d'or :
 $app->match('/livreDor', 'WF3\Controller\HomeController::livreDorAction')->bind('livreDor');

@@ -10,12 +10,18 @@ use WF3\Domain\User;
 
 class AdminController{
 
+
+    //////////////////////////////////////////////////////////////////////////////////////////
+
     //page d'accueil du back office
     public function indexAction(Application $app){
         $spectacles = $app['dao.spectacle']->findAll();
         return $app['twig']->render('admin/homeAdmin.html.twig', array('spectacles'=>$spectacles));
     }
 
+    
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
     //Ajout d'un spectacle :
     public function ajoutSpectacleAction(Application $app, Request $request){
@@ -40,6 +46,7 @@ class AdminController{
         ));
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
     //suppression d'un Spectacle :
     public function deleteSpectacleAction(Application $app, $id){
@@ -48,8 +55,11 @@ class AdminController{
         $app['session']->getFlashBag()->add('success', 'Représentation bien supprimé');
         //on redirige vers la page d'accueil
         return $app->redirect($app['url_generator']->generate('homeAdmin'));
-    }
 
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
     //modification d'un Spectacle :
     public function updateSpectacleAction(Application $app, Request $request, $id){
@@ -81,7 +91,9 @@ class AdminController{
         //on redirige vers la page d'accueil
     }
     
-    
+    ////////////////////////////////////////////////////////////////////////////////////////////    
+
+
     //Connexion pour accéder à la page Administration :
     public function loginAction(Application $app, Request $request){
     	//j'appelle la vue qui contient le formulaire de connexion
@@ -92,6 +104,7 @@ class AdminController{
     	));
     }
 
+    
 
 }
 

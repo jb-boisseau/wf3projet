@@ -34,4 +34,5 @@ $app->get('/login', 'WF3\Controller\AdminController::loginAction')->bind('login'
 //Lien vers le Calendrier :
 $app->get('/calendar', 'WF3\Controller\HomeController::calendarPageAction')->bind('calendar');
 
-//Déconnexion pour les administrateurs :
+//Lien vers contact :
+$app->match('/contact', 'WF3\Controller\HomeController::contactAction')->bind('contactezmoi');

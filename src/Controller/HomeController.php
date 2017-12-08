@@ -6,16 +6,16 @@ use Silex\Application;
 // les $_GET et $_POST
 use Symfony\Component\HttpFoundation\Request;
 use WF3\Form\Type\ReservationType;
-
-
+use WF3\Domain\Livredor;
+use WF3\Form\Type\LivredorType;
 
 class HomeController{
 
-	// Page d'accueil qui affiche tous les articles
+	// Page d'accueil qui affiche tous les articles :
 	public function homePageAction(Application $app){
-
 	 	return $app['twig']->render('index.html.twig');
 	}
+
 
 	// Page de reservation 
    
@@ -52,5 +52,27 @@ class HomeController{
 	//page d'accueil du back office
 	public function livreDorAction(Application $app){
 		return $app['twig']->render('livredor.html.twig');
+
+	
+
+	//Page du calendrier :
+	public function calendarPageAction(Application $app, Request $request){
+		return $app['twig']->render('calendar.html.twig');
+   }
+	
+	//page du livre d'or :
+	public function livreDorAction(Application $app, Request $request){
+		$livredor = new Livredor();
+		$livredorForm = $app['form.factory']->create(LivredorType::class, $livredor);
+		$livredorForm->handleRequest($request);
+		if($livredorForm->isSubmitted() && $livredorForm->isValid()){
+			$app['dao.livredor']->insert($livredor);
+		}
+
+
+		return $app['twig']->render('livredor.html.twig',
+			array('livredorForm'=>$livredorForm->createView())
+		);
+>>>>>>> f170b02bceae2dbe2caf51cde4bd3251e3e7e46b
 	}
 }

@@ -87,5 +87,9 @@ $app['dao.user'] = function($app){
 	return new WF3\DAO\UserDAO($app['db'], 'users', 'WF3\Domain\User');
 };
 
+$app['dao.livredor'] = function($app){
+    return new WF3\DAO\UserDAO($app['db'], 'livredor', 'WF3\Domain\Livredor');
+};
+
 
 

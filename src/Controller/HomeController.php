@@ -48,13 +48,6 @@ class HomeController{
 	}
     
 	
-   
-	//page d'accueil du back office
-	public function livreDorAction(Application $app){
-		return $app['twig']->render('livredor.html.twig');
-
-	
-
 	//Page du calendrier :
 	public function calendarPageAction(Application $app, Request $request){
 		return $app['twig']->render('calendar.html.twig');
@@ -73,6 +66,5 @@ class HomeController{
 		return $app['twig']->render('livredor.html.twig',
 			array('livredorForm'=>$livredorForm->createView())
 		);
->>>>>>> f170b02bceae2dbe2caf51cde4bd3251e3e7e46b
 	}
 }

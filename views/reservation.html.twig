@@ -27,6 +27,13 @@
                 {{ form_start(reservationForm, { 'attr': {'class': 'form-horizontal'} }) }}
                 
                         <div class="form-group">
+                            {{ form_label(reservationForm.name, null) }}
+                            <div>
+                                {{ form_widget(reservationForm.name, { 'attr':  { 'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
                     
                             {{ form_label(reservationForm.email, null) }}
                     
@@ -37,30 +44,27 @@
                     
                         </div>
                 
-                        <div class="form-group">
-                            {{ form_label(reservationForm.name, null) }}
+                         <div class="form-group">
+                            {{ form_label(reservationForm.nbTicket, null) }}
                             <div>
-                                {{ form_widget(reservationForm.name, { 'attr':  { 'class': 'form-control'}}) }}
+                                {{ form_errors(reservationForm.nbTicket) }}
+                                {{ form_widget(reservationForm.nbTicket, { 'attr':{
+                                'class': 'form-control',
+                                'placeholder': 'Nombre de place'
+                                }}) }}
                             </div>
                         </div>
                 
                         <div class="form-group">
-                            {{ form_label(reservationForm.date, null) }}
+                            {{ form_label(reservationForm.dateVenue, null) }}
                             <div>
-                                {{ form_errors(reservationForm.date) }}
-                                {{ form_widget(reservationForm.date, { 'attr':{
+                                {{ form_errors(reservationForm.dateVenue) }}
+                                {{ form_widget(reservationForm.dateVenue, { 'attr':{
                                 'class': 'form-control'}}) }}
                             </div>
                         </div>
                 
-                        <div class="form-group">
-                            {{ form_label(reservationForm.ticket, null) }}
-                            <div>
-                                {{ form_errors(reservationForm.ticket) }}
-                                {{ form_widget(reservationForm.ticket, { 'attr':{
-                                'class': 'form-control'}}) }}
-                            </div>
-                        </div>
+                       
                 
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-lg" value="Valider la réservation" />

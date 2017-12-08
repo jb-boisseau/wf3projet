@@ -81,6 +81,13 @@ $app['dao.spectacle'] = function($app){
     return $spectacleDAO;
 };
 
+$app['dao.reservation'] = function($app){
+	$reservationDAO = new WF3\DAO\ReservationDAO($app['db'], 'reservation', 'WF3\Domain\Reservation');
+    //on injecte dans $articleDAO une instance de la classe UserDAO : injection de dépendance
+    //elle est faite une seule fois, ici
+    return $reservationDAO;
+};
+
 //on enregistre un nouveau service :
 //on pourra ainsi accéder à notre classe UserDAO grâce à $app['dao.user'] 
 $app['dao.user'] = function($app){
@@ -89,6 +96,8 @@ $app['dao.user'] = function($app){
 
 $app['dao.livredor'] = function($app){
     return new WF3\DAO\UserDAO($app['db'], 'livredor', 'WF3\Domain\Livredor');
+    
+
 };
 
 

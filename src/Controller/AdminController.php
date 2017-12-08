@@ -56,7 +56,7 @@ class AdminController{
         //on redirige vers la page d'accueil
         return $app->redirect($app['url_generator']->generate('homeAdmin'));
 
-
+    }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////
@@ -105,6 +105,6 @@ class AdminController{
     }
 
     
-
+    
 }
 

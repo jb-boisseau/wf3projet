@@ -7,10 +7,10 @@
 $app->match('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
 
 //page de reservation :
-$app->get('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
+$app->match('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
 
 //Livre d'or :
-$app->get('/livreDor', 'WF3\Controller\HomeController::livreDorAction')->bind('livreDor');
+$app->match('/livreDor', 'WF3\Controller\HomeController::livreDorAction')->bind('livreDor');
 
 //Page Menu admin :
 $app->get('/admin', 'WF3\Controller\AdminController::indexAction')->bind('homeAdmin');
@@ -30,5 +30,8 @@ $app->match('/admin/updateSpectacle/{id}', 'WF3\Controller\AdminController::upda
 
 //Connexion pour les administrateurs :
 $app->get('/login', 'WF3\Controller\AdminController::loginAction')->bind('login');
+
+//Lien vers le Calendrier :
+$app->get('/calendar', 'WF3\Controller\HomeController::calendarPageAction')->bind('calendar');
 
 //Déconnexion pour les administrateurs :

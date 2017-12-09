@@ -4,62 +4,79 @@
 
 {% block contact %}
     
-    <div class="col-sm-6">
-        {% for flashMessage in app.session.flashbag.get('success') %}
-        <div class="alert alert-success">
-            {{ flashMessage }}
+
+<section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Nous contacter</h2>
+              <h3 class="section-subheading text-muted">On vous répondra vite!</h3>
+          </div>
         </div>
-        {% endfor %}
+        <div class="col">
+          <div class="col-lg-12">
+              <div class="col">
 
-        <div class="contact_form">
+              {# Début du FORMULAIRE #}
+                {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }};
+                  <div class="form-group">
 
-        {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }}
-            <div class="form-group">
-                {{ form_label(contactForm.email, null) }}
-                <div>
-                    {{ form_errors(contactForm.email) }}
-                    {{ form_widget(contactForm.email, { 'attr':  {
-                        'class': 'form-control'
-                    }}) }}
-                </div>
-            </div>
+                  {# BOUTON EMAIL #}
+                    {{ form_label(contactForm.email, null) }}
+                        <div>
+                            {{ form_errors(contactForm.email) }}
+                            {{ form_widget(contactForm.email, { 'attr':  {
+                                'class': 'form-control'
+                            }}) }}
+                        </div>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
 
-            <div class="form-group">
-                {{ form_label(contactForm.name, null) }}
-                <div>
-                <div class="alert alert-danger">
-                    {{ form_errors(contactForm.name) }}
-                </div>
-                    {{ form_widget(contactForm.name, { 'attr':  {
-                        'class': 'form-control'
-                    }}) }}
-                </div>
-            </div>
+                  {# BOUTON NAME #}
+                    {{ form_label(contactForm.name, null) }}
+                    <div>
+                        {{ form_errors(contactForm.name) }}
+                        {{ form_widget(contactForm.name, { 'attr':  {
+                            'class': 'form-control'
+                        }}) }}
+                    </div>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
 
-            <div class="form-group">
-                {{ form_label(contactForm.subject, null) }}
-                <div>
-                    {{ form_errors(contactForm.subject) }}
-                    {{ form_widget(contactForm.subject, { 'attr':  {
-                        'class': 'form-control'
-                    }}) }}
-                </div>
-            </div>
+                  {# BOUTON SUJET #}
+                    {{ form_label(contactForm.subject, null) }}
+                    <div>
+                        {{ form_errors(contactForm.subject) }}
+                        {{ form_widget(contactForm.subject, { 'attr':  {
+                            'class': 'form-control'
+                        }}) }}
+                    </div>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
 
-            <div class="form-group">
-                {{ form_label(contactForm.message, null) }}
-                <div>
-                    {{ form_errors(contactForm.message) }}
-                    {{ form_widget(contactForm.message, { 'attr':  {
-                        'class': 'form-control'
-                    }}) }}
+                  {#  BOUTON CONTENU #}
+                    {{ form_label(contactForm.message, null) }}
+                    <div>
+                        {{ form_errors(contactForm.message) }}
+                        {{ form_widget(contactForm.message, { 'attr':  {
+                            'class': 'form-control'
+                        }}) }}
+                    </div>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button  class="btn btn-primary btn-xl text-uppercase" type="submit" value="send" >Envoyer le message</button>
                 </div>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-lg" value="Send" />
-            </div>
-        {{ form_end(contactForm) }}
-    </div>
-                                
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 {% endblock %}

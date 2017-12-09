@@ -1,8 +1,8 @@
-{% extends "index.html.twig" %}
+{% extends "layout.html.twig" %}
 
 {% block title %} Contact {% endblock %}
 
-{% block contact %}
+{% block content %}
     
 
 <section id="contact">
@@ -18,7 +18,7 @@
               <div class="col">
 
               {# Début du FORMULAIRE #}
-                {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }};
+                {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }}
                   <div class="form-group">
 
                   {# BOUTON EMAIL #}
@@ -29,7 +29,7 @@
                                 'class': 'form-control'
                             }}) }}
                         </div>
-                    <p class="help-block text-danger"></p>
+                    <p class="hlp-block text-danger"></p>
                   </div>
                   <div class="form-group">
 

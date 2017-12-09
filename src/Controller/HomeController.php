@@ -29,7 +29,7 @@ class HomeController{
             $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])
                         ->setFrom(array('promo5wf3@gmx.fr'))
-                        ->setTo(array($data['email']))
+                        ->setTo(array('batty.arnaud@hotmail.fr'))
                         ->setBody($app['twig']->render('contact.email.html.twig',
                             array('name'=>$data['name'],
                                    'email' => $data['email'],
@@ -38,7 +38,8 @@ class HomeController{
                         ), 'text/html');
 
             $app['mailer']->send($message);
-
+            $app['session']->getFlashBag()->add('success', 'Email envoyé, nous vous répondrons dès que possible !');
+            return $app->redirect($app['url_generator']->generate('home'));
 
         }
         return $app['twig']->render('contact.html.twig', array(

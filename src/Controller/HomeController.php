@@ -10,6 +10,7 @@ use WF3\Domain\Livredor;
 use WF3\Form\Type\LivredorType;
 use WF3\Form\Type\ContactType;
 use WF3\Form\Type\UploadImageType;
+use WF3\Form\Type\ChoiceType;
 
 
 class HomeController{
@@ -59,11 +60,20 @@ class HomeController{
 	}
 
 
-
+    
 
     // Page de reservation 
 	public function reservationAction(Application $app, Request $request){
+
+        $data =[];
+
         $reservationForm = $app['form.factory']->create(ReservationType::class);
+
+        $reservationForm->add('spectacles', ChoiceType::class, array(
+            'choices' => $data,
+            'label'    => 'Type',
+            ));
+        
         $reservationForm->handleRequest($request);
         
         if ($reservationForm->isSubmitted() && $reservationForm->isValid())
@@ -72,11 +82,11 @@ class HomeController{
             $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])
                         ->setFrom(array('promo5wf3@gmx.fr'))
-                        ->setTo(array('votre@mail.com'))
+                        ->setTo(array($data['email']))
                         ->setBody($app['twig']->render('reservation.html.twig',
-                            array('name'=>$data['name'],
-                                   'email' => $data['email'],
-                                   'message' => $data['message']
+                            array('name'        => $data['name'],
+                                   'email'      => $data['email'],
+                                   'message'    => $data['message']
                             )
                         ), 'text/html');
 

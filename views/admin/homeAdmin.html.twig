@@ -31,8 +31,15 @@
                     <ul>
                     <br>
                         {% for spectacle in spectacles %}
-                            <li class="section-subheading text-muted">{{ spectacle.title}}</li>
+                            <li class="section-subheading text-muted">Titre : {{ spectacle.title}}
+                                <p class="section-subheading text-muted"> Date : {{ spectacle.dateVenue}} <br>
+                                Place restantes : {{ spectacle.nbTickets}} <br>
+                                Lieu : {{ spectacle.place}} <br>
+                                Type : {{ spectacle.type}}
+                                </p>
                             <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> | <a href="{{ path('updateSpectacle', {id: spectacle.id})}}">Modifier</a>
+                            </li>
+                            <br>
                         {% endfor %}
                     </ul>
                 </div>

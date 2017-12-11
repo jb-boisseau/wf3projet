@@ -13,6 +13,7 @@ class Spectacle{
     private $place;
     private $type;
     private $photo;
+    private $image;
 
 
 

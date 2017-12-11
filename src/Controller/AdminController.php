@@ -32,12 +32,12 @@ class AdminController{
         $spectacleForm->handleRequest($request);
 
         if($spectacleForm->isSubmitted() AND $spectacleForm->isValid()){
-            $path=__DIR__.'/../..'.$app['upload_dir'];
-            $file= $request->files->get('register')['image'];
-            $filename=md5(uniqid()).'.'.$file->guessExtension();
-            $spectacle->setImage($filename);            
-            $datetime=$spectacle->getDateVenue();
-            $spectacle->setDateVenue($datetime->format('Y-m-d h:i:s'));
+            $path =__DIR__.'/../..'.$app['upload_dir'];
+            $file = $request->files->get('register')['image'];
+            $filename       = md5(uniqid()) . '.' . $file->guessExtension();
+            $spectacle      -> setImage($filename);            
+            $datetime       = $spectacle->getDateVenue();
+            $spectacle      ->setDateVenue($datetime->format('Y-m-d h:i:s'));
             $app['dao.spectacle']->insert($spectacle);
             $app['session']->getFlashBag()->add('success', 'Spectacle ajouté');
             //on redirige vers la page d'accueil

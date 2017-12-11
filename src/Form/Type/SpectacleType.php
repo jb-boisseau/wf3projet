@@ -16,6 +16,7 @@ class SpectacleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class);
+        $builder->add('photo', TextType::class);
         $builder->add('content', TextareaType::class);
         $builder->add('dateVenue', DateTimeType::class);
         $builder->add('nbTickets', TextType::class);

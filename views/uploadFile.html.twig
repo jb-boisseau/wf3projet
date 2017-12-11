@@ -1,0 +1,15 @@
+{% extends "layout.html.twig" %}
+		{% block title %}Ma page d'accueil{% endblock %}
+
+{% block content %}
+		
+    <h2>Uploader un fichier</h2>	
+<form action="{{ path('uploadFile')}}">
+<input type="files" name="file">
+<button type="submit">Choisissez un fichier</button>
+
+</form>
+
+
+
+{% endblock %}

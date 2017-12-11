@@ -17,7 +17,8 @@ class LivredorType extends AbstractType
             array(
                 'attr' => array(
                     'class'=>'form-control',
-                    'placeholder'=>'prout'
+
+                    'placeholder'=>'Votre Nom/Pseudo'
                 )
             )
         );        
@@ -25,7 +26,9 @@ class LivredorType extends AbstractType
             array(
                 'attr' => array(
                     'class'=>'form-control',
-                    'placeholder'=>'prout'
+                    'placeholder'=>'Adresse e-mail'
+
+  
                 )
             )
         );
@@ -33,11 +36,13 @@ class LivredorType extends AbstractType
             array(
                 'attr' => array(
                     'class'=>'form-control',
-                    'placeholder'=>'prout'
+
+                    'placeholder'=>'Votre message'
+
                 )
             )
         );
-        $builder->add('Enregistrer', SubmitType::class,
+        $builder->add('Poster', SubmitType::class,
             array(
                 'attr' => array(
                     'class'=>'btn btn-primary btn-xl text-uppercase'

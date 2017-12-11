@@ -20,6 +20,8 @@
 
             {{ form_start(spectacleForm)}}
             	
+              
+
 
                 {# Titre #}
             	<div class="form-group">
@@ -64,8 +66,10 @@
                     {{ form_widget(spectacleForm.dateVenue, 
                     	{ 
                     		'attr':  {
+                               'type': 'datetime',
                         		'class': 'form-control',
-                        		'placeholder': 'Entrez une date'
+                        	    
+                               'placeholder': 'Entrez une date'
                             }
                         }
                     )}}

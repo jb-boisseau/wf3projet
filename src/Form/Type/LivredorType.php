@@ -17,7 +17,7 @@ class LivredorType extends AbstractType
             array(
                 'attr' => array(
                     'class'=>'form-control',
-                    'placeholder'=>'prout'
+                    'placeholder'=>'Votre Nom/Pseudo'
                 )
             )
         );        
@@ -25,7 +25,7 @@ class LivredorType extends AbstractType
             array(
                 'attr' => array(
                     'class'=>'form-control',
-                    'placeholder'=>'prout'
+                    'placeholder'=>'Votre Email'
                 )
             )
         );
@@ -33,7 +33,7 @@ class LivredorType extends AbstractType
             array(
                 'attr' => array(
                     'class'=>'form-control',
-                    'placeholder'=>'prout'
+                    'placeholder'=>'Votre message...'
                 )
             )
         );

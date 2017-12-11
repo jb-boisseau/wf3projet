@@ -17,6 +17,11 @@ class HomeController{
         return $app['twig']->render('index.html.twig');
 	}
 
+	// Page d'accueil qui affiche tous les articles :
+	public function paymentsAction(Application $app){
+	 	return $app['twig']->render('payments.html.twig');
+	}
+
 
 	//page contact
 	public function contactAction(Application $app, Request $request){
@@ -29,7 +34,7 @@ class HomeController{
             $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])
                         ->setFrom(array('promo5wf3@gmx.fr'))
-                        ->setTo(array($data['email']))
+                        ->setTo(array('batty.arnaud@hotmail.fr'))
                         ->setBody($app['twig']->render('contact.email.html.twig',
                             array('name'=>$data['name'],
                                    'email' => $data['email'],
@@ -38,7 +43,8 @@ class HomeController{
                         ), 'text/html');
 
             $app['mailer']->send($message);
-
+            $app['session']->getFlashBag()->add('success', 'Email envoyé, nous vous répondrons dès que possible !');
+            return $app->redirect($app['url_generator']->generate('home'));
 
         }
         return $app['twig']->render('contact.html.twig', array(

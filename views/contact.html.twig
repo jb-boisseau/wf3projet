@@ -4,36 +4,48 @@
 
 {% block content %}
     
-        <div class="col-sm-6">
-            {% for flashMessage in app.session.flashbag.get('success') %}
-            <div class="alert alert-success">
-                {{ flashMessage }}
-            </div>
-            {% endfor %}
 
-            <div class="contact_form">
-            {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }}
-                <div class="form-group">
+<section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Nous contacter</h2>
+              <h3 class="section-subheading text-muted">On vous répondra vite!</h3>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-lg-12">
+              <div class="col">
+
+              {# Début du FORMULAIRE #}
+                {{ form_start(contactForm, { 'attr': {'class': 'form-horizontal'} }) }}
+                  <div class="form-group">
+
+                  {# BOUTON EMAIL #}
                     {{ form_label(contactForm.email, null) }}
-                    <div>
-                        {{ form_errors(contactForm.email) }}
-                        {{ form_widget(contactForm.email, { 'attr':  {
-                            'class': 'form-control'
-                        }}) }}
-                    </div>
-                </div>
-                <div class="form-group">
+                        <div>
+                            {{ form_errors(contactForm.email) }}
+                            {{ form_widget(contactForm.email, { 'attr':  {
+                                'class': 'form-control'
+                            }}) }}
+                        </div>
+                    <p class="hlp-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+
+                  {# BOUTON NAME #}
                     {{ form_label(contactForm.name, null) }}
                     <div>
-                    <div class="alert alert-danger">
                         {{ form_errors(contactForm.name) }}
-                    </div>
                         {{ form_widget(contactForm.name, { 'attr':  {
                             'class': 'form-control'
                         }}) }}
                     </div>
-                </div>
-                <div class="form-group">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+
+                  {# BOUTON SUJET #}
                     {{ form_label(contactForm.subject, null) }}
                     <div>
                         {{ form_errors(contactForm.subject) }}
@@ -41,8 +53,11 @@
                             'class': 'form-control'
                         }}) }}
                     </div>
-                </div>
-                <div class="form-group">
+                    <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="form-group">
+
+                  {#  BOUTON CONTENU #}
                     {{ form_label(contactForm.message, null) }}
                     <div>
                         {{ form_errors(contactForm.message) }}
@@ -50,11 +65,18 @@
                             'class': 'form-control'
                         }}) }}
                     </div>
+                    <p class="help-block text-danger"></p>
+                  </div>
+                <div class="clearfix"></div>
+                <div class="col-lg-12 text-center">
+                  <div id="success"></div>
+                  <button  class="btn btn-primary btn-xl text-uppercase" type="submit" value="send" >Envoyer le message</button>
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary btn-lg" value="Send" />
-                </div>
-            {{ form_end(contactForm) }}
+              </div>
+          </div>
         </div>
-                                
+      </div>
+    </section>
+
+
 {% endblock %}

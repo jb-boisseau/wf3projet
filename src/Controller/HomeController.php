@@ -9,13 +9,17 @@ use WF3\Form\Type\ReservationType;
 use WF3\Domain\Livredor;
 use WF3\Form\Type\LivredorType;
 use WF3\Form\Type\ContactType;
+use WF3\Form\Type\UploadImageType;
+
 
 class HomeController{
 
-	// Page d'accueil qui affiche tous les articles :
+	// Page d'accueil qui affiche tous les spectacles :
 	public function homePageAction(Application $app){
-        return $app['twig']->render('index.html.twig');
-	}
+        $spectacles = $app['dao.spectacle']->findAll();
+        return $app['twig']->render('index.html.twig', array('spectacles'=>$spectacles));
+    }
+
 
 	// Page d'accueil qui affiche tous les articles :
 	public function paymentsAction(Application $app){
@@ -53,27 +57,6 @@ class HomeController{
             'data' => $contactForm->getData()
         ));
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

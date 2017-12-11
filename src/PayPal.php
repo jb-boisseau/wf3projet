@@ -9,11 +9,11 @@
 namespace wf3\Payments;
 
 
-use  wf3\Payments\Payment;
+use wf3\Payments\Payment;
 use wf3\Payments\PaymentExecution;
 use wf3\Payments\Invoice;
 use wf3\Payments\OAuthTokenCredential;
-use  wf3\Payments\ApiContext;
+use wf3\Payments\ApiContext;
 
 use wf3\Payments\CreditCardPayment;
 use wf3\Payments\ExpressCheckout;

@@ -46,6 +46,9 @@ class Spectacle{
     public function getType(){
         return $this->type;
     }
+    public function getImage(){
+        return $this->image;
+    }
     
 
 
@@ -96,4 +99,11 @@ class Spectacle{
             $this->type = $type;  
         }       
     }
+    
+    public function setImage($image){    
+        if(!empty($image)){ 
+            $this->image = $image;  
+        }       
+    }
+    
 }

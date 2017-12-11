@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints;
 
 
 
@@ -28,6 +29,7 @@ class SpectacleType extends AbstractType
         
         $builder->add('nbTickets', TextType::class);
         $builder->add('place', TextType::class);
+        $builder->add('image', Imagetype::class);
 
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')

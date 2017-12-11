@@ -7,6 +7,7 @@ use WF3\Form\Type\SpectacleType;
 use WF3\Domain\Spectacle;
 use WF3\Form\Type\LoginType;
 use WF3\Domain\User;
+use App\Service\FileUploader;
 
 class AdminController{
 
@@ -26,12 +27,15 @@ class AdminController{
     //Ajout d'un spectacle :
     public function ajoutSpectacleAction(Application $app, Request $request){
         $spectacle = new Spectacle();
-
         $spectacleForm = $app['form.factory']->create(SpectacleType::class, $spectacle);
 
         $spectacleForm->handleRequest($request);
 
         if($spectacleForm->isSubmitted() AND $spectacleForm->isValid()){
+            $path=__DIR__.'/../..'.$app['upload_dir'];
+            $file= $request->files->get('register')['image'];
+            $filename=md5(uniqid()).'.'.$file->guessExtension();
+            $spectacle->setImage($filename);            
             $datetime=$spectacle->getDateVenue();
             $spectacle->setDateVenue($datetime->format('Y-m-d h:i:s'));
             $app['dao.spectacle']->insert($spectacle);
@@ -68,16 +72,35 @@ class AdminController{
     public function updateSpectacleAction(Application $app, Request $request, $id){
         //on récupère les infos de l'article
         $spectacle = $app['dao.spectacle']->find($id);
+        $image=$spectacle->getImage();
+        $spectacle->setImage(NULL);
         $spectacle->setDateVenue(new \DateTime($spectacle->getDateVenue()));
         //on crée le formulaire et on lui passe le spectacle en paramètre
         //il va utiliser $article pour pré remplir les champs
         $spectacleForm = $app['form.factory']->create(SpectacleType::class, $spectacle);
 
         $spectacleForm->handleRequest($request);
-
+        
         if($spectacleForm->isSubmitted() && $spectacleForm->isValid()){
             //si le formulaire a été soumis
             //on update avec les données envoyées par l'utilisateur
+                if($spectacle->getImage()===NULL){
+                    $spectacle->setImage($image);
+                    $app['dao.spectacle']->update($id, $spectacle);
+                    $app['session']->getFlashBag()->add('success', 'Image bien modifiée');
+                }
+                else{
+                    $path=__DIR__.'/../..'.$app['upload_dir'];
+                    $file= $request->files->get('register')['image'];
+                    $filename=md5(uniqid()).'.'.$file->guessExtension();
+                    $spectacle->setImage($filename); 
+                    $app['dao.spectacle']->update($id, $spectacle);
+                    $file->move($path,$filename);
+                }
+                if(file_exists('../'.$app['upload_dir'] . "/" .$image)){
+                    unlink('../'.$app['upload_dir'] . "/" .$image);
+                    $app['session']->getFlashBag()->add('success', 'Image bien modifiée');
+                }
 
             $datetime=$spectacle->getDateVenue();
             $spectacle->setDateVenue($datetime->format('Y-m-d h:i:s'));

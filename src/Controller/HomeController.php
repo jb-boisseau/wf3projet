@@ -16,6 +16,11 @@ class HomeController{
 	 	return $app['twig']->render('index.html.twig');
 	}
 
+	// Page d'accueil qui affiche tous les articles :
+	public function paymentsAction(Application $app){
+	 	return $app['twig']->render('payments.html.twig');
+	}
+
 
 	// Page de reservation 
    

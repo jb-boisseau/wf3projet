@@ -7,8 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
@@ -20,38 +20,43 @@ class ReservationType extends AbstractType
     {
         //on liste les champs qu'on veut rajouter
     $builder
+
+        //Email :
         ->add('email', TextType::class, array('label'=>'Entrer votre Email',
                 'attr' => array(
-                    'placeholder' => 'Inscrivez votre adresse EMAIL'
+                    'placeholder' => 'Votre Email'
                 ),
                 'constraints' => new Assert\Email()
             )) 
             
-        ->add('date', DatetimeType::class, array('label'=>'Date du Spectacle',
-                'attr' => array(
-                    'placeholder' => 'Entrer la DATE souhaitez'
-                ),
-                'constraints' => new Assert\Date()
+
+        //Choix du Spectacle :
+        ->add('spectacles', ChoiceType::class)
+
+
+
+        //Nombre de tickets voulus :
+        ->add('ticket', TextType::class, array('label'=>'Nombre de Tickets',
+            'attr' => array(
+                'placeholder' => 'Entrez le nombre de places souhaitées'
+            ),
+            'constraints' => new Assert\Email()
             ))
-        ->add('ticket', TextType::class, array('label'=>'Nombre de Ticket',
-                'attr' => array(
-                    'placeholder' => 'Entrer le nombre de place souhaitez'
-                ),
-                'constraints' => new Assert\Email()
-                 ))
            
+
+        // Nom :
         ->add('name', TextType::class, array('label'=>'Entrer votre Nom',
-                'attr' => array(
-                    'placeholder' => 'Entrer votre NOM '
-                ),
-                'constraints' => array(
-                    new Assert\NotBlank(),
-                    new Assert\Length(array(
-                        'min' => 3,
-                        'max' => 20,
-                        'minMessage' => 'Le NOM doit faire au moins 3 caractères'
-                    ))
-                )
+            'attr' => array(
+                'placeholder' => 'Votre Nom '
+            ),
+            'constraints' => array(
+                new Assert\NotBlank(),
+                new Assert\Length(array(
+                    'min' => 3,
+                    'max' => 20,
+                    'minMessage' => 'Le NOM doit faire au moins 3 caractères'
+                ))
+            )
             ));
         
     }

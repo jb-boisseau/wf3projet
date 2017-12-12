@@ -8,7 +8,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints;
+
 
 
 class SpectacleType extends AbstractType
@@ -16,10 +20,17 @@ class SpectacleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class);
+        $builder->add('photo', TextType::class);
         $builder->add('content', TextareaType::class);
-        $builder->add('dateVenue', DateTimeType::class);
+          
+        $builder->add('dateVenue', DateType::class, [
+            'widget' => 'single_text',
+            'attr'   => ['class' => 'js-datepicker'],
+        ]);
+        
         $builder->add('nbTickets', TextType::class);
         $builder->add('place', TextType::class);
+        $builder->add('image', Imagetype::class);
 
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')
@@ -28,6 +39,8 @@ class SpectacleType extends AbstractType
         $builder->add('Enregistrer', SubmitType::class);
     }
 
+    
+    
     public function getName()
     {
         return 'article';

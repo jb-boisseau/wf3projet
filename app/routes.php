@@ -15,6 +15,8 @@ $app->match('/reservation', 'WF3\Controller\HomeController::reservationAction')-
 //Livre d'or :
 $app->match('/livreDor', 'WF3\Controller\HomeController::livreDorAction')->bind('livreDor');
 
+$app->match('/livreDor-messages', 'WF3\Controller\HomeController::livreDorMessagesAction')->bind('livreDorMessages');
+
 //Page Menu admin :
 $app->get('/admin', 'WF3\Controller\AdminController::indexAction')->bind('homeAdmin');
 

@@ -29,7 +29,7 @@ class SpectacleType extends AbstractType
         
         $builder->add('nbTickets', TextType::class);
         $builder->add('place', TextType::class);
-        $builder->add('image', Imagetype::class);
+        $builder->add('image', ImageType::class);
 
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')

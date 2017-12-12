@@ -49,16 +49,10 @@ class Spectacle{
     public function getType(){
         return $this->type;
     }
+    
+  
     public function getImage(){
         return $this->image;
-    }
-
-     public function getPrice(){
-        return $this->price;
-    }
-
-     public function getReservation(){
-        return $this->reservation;
     }
 
 
@@ -109,7 +103,6 @@ class Spectacle{
             $this->type = $type;  
         }       
     }
-    
     public function setImage($image){    
         if(!empty($image)){ 
             $this->image = $image;  

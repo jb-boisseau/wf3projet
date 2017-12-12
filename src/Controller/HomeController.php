@@ -12,8 +12,6 @@ use WF3\Form\Type\ContactType;
 use WF3\Form\Type\UploadImageType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-
-
 class HomeController{
 
 	// Page d'accueil qui affiche tous les spectacles :
@@ -61,8 +59,6 @@ class HomeController{
 	}
 
 
-    
-
     // Page de reservation 
 	public function reservationAction(Application $app, Request $request){
         //Récupération des données dans $data
@@ -102,7 +98,6 @@ class HomeController{
             'data' => $reservationForm->getData()
         ));
 	}
-	
 
 	//Page du calendrier :
 	public function calendarPageAction(Application $app, Request $request){
@@ -122,4 +117,14 @@ class HomeController{
 			array('livredorForm'=>$livredorForm->createView())
 		);
 	}
+    
+    //page du livre d'or :
+    public function livreDorMessagesAction(Application $app){
+        
+        $messages = $app['dao.livredor']->findAll();
+
+        return $app['twig']->render('livredor.message.html.twig',
+            array('messages'=>$messages)
+        );
+    }
 }

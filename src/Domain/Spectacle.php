@@ -12,8 +12,9 @@ class Spectacle{
     private $nbTickets;
     private $place;
     private $type;
-    private $photo;
     private $image;
+    private $price;
+    private $reservation;
 
 
 
@@ -51,9 +52,13 @@ class Spectacle{
     public function getImage(){
         return $this->image;
     }
-    
-     public function getPhoto(){
-        return $this->photo;
+
+     public function getPrice(){
+        return $this->price;
+    }
+
+     public function getReservation(){
+        return $this->reservation;
     }
 
 
@@ -104,16 +109,22 @@ class Spectacle{
             $this->type = $type;  
         }       
     }
-
-    public function setPhoto($photo){    
-        if(!empty($photo)){ 
-            $this->photo = $photo;  
-        }       
-    }
     
     public function setImage($image){    
         if(!empty($image)){ 
             $this->image = $image;  
+        }       
+    }
+
+    public function setPrice($price){    
+        if(!empty($price)){ 
+            $this->price = $price;  
+        }       
+    }
+
+    public function setReservation($reservation){    
+        if(!empty($reservation)){ 
+            $this->reservation = $reservation;  
         }       
     }
 }

@@ -8,17 +8,47 @@ use Symfony\Component\HttpFoundation\Request;
 use WF3\Form\Type\ReservationType;
 use WF3\Domain\Livredor;
 use WF3\Form\Type\LivredorType;
+use WF3\Form\Type\ContactType;
 
 class HomeController{
 
 	// Page d'accueil qui affiche tous les articles :
 	public function homePageAction(Application $app){
-	 	return $app['twig']->render('index.html.twig');
+        return $app['twig']->render('contact.html.twig');
 	}
 
 
-	// Page de reservation 
-   
+	//page contact
+	public function contactAction(Application $app, Request $request){
+        $contactForm = $app['form.factory']->create(ContactType::class);
+        $contactForm->handleRequest($request);
+        
+        if ($contactForm->isSubmitted() && $contactForm->isValid())
+        {
+            $data = $contactForm->getData();
+            $message = \Swift_Message::newInstance()
+                        ->setSubject($data['subject'])
+                        ->setFrom(array('promo5wf3@gmx.fr'))
+                        ->setTo(array($data['email']))
+                        ->setBody($app['twig']->render('contact.email.html.twig',
+                            array('name'=>$data['name'],
+                                   'email' => $data['email'],
+                                   'message' => $data['message']
+                            )
+                        ), 'text/html');
+
+            $app['mailer']->send($message);
+
+
+        }
+        return $app['twig']->render('contact.html.twig', array(
+            'title' => 'Contact Us',
+            'contactForm' => $contactForm->createView(),
+            'data' => $contactForm->getData()
+        ));
+	}
+
+    // Page de reservation 
 	public function reservationAction(Application $app, Request $request){
         $reservationForm = $app['form.factory']->create(ReservationType::class);
         $reservationForm->handleRequest($request);
@@ -46,8 +76,7 @@ class HomeController{
             'data' => $reservationForm->getData()
         ));
 	}
-    
-	
+
 	//Page du calendrier :
 	public function calendarPageAction(Application $app, Request $request){
 		return $app['twig']->render('calendar.html.twig');
@@ -61,7 +90,6 @@ class HomeController{
 		if($livredorForm->isSubmitted() && $livredorForm->isValid()){
 			$app['dao.livredor']->insert($livredor);
 		}
-
 
 		return $app['twig']->render('livredor.html.twig',
 			array('livredorForm'=>$livredorForm->createView())

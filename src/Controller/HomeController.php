@@ -10,8 +10,7 @@ use WF3\Domain\Livredor;
 use WF3\Form\Type\LivredorType;
 use WF3\Form\Type\ContactType;
 use WF3\Form\Type\UploadImageType;
-use WF3\Form\Type\ChoiceType;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class HomeController{
 

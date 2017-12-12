@@ -9,12 +9,22 @@ use WF3\Form\Type\ReservationType;
 use WF3\Domain\Livredor;
 use WF3\Form\Type\LivredorType;
 use WF3\Form\Type\ContactType;
+use WF3\Form\Type\UploadImageType;
+use WF3\Form\Type\ChoiceType;
+
 
 class HomeController{
 
-	// Page d'accueil qui affiche tous les articles :
+	// Page d'accueil qui affiche tous les spectacles :
 	public function homePageAction(Application $app){
-        return $app['twig']->render('contact.html.twig');
+        $spectacles = $app['dao.spectacle']->findAll();
+        return $app['twig']->render('index.html.twig', array('spectacles'=>$spectacles));
+    }
+
+
+	// Page d'accueil qui affiche tous les articles :
+	public function paymentsAction(Application $app){
+	 	return $app['twig']->render('payments.html.twig');
 	}
 
 
@@ -29,7 +39,7 @@ class HomeController{
             $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])
                         ->setFrom(array('promo5wf3@gmx.fr'))
-                        ->setTo(array($data['email']))
+                        ->setTo(array('batty.arnaud@hotmail.fr'))
                         ->setBody($app['twig']->render('contact.email.html.twig',
                             array('name'=>$data['name'],
                                    'email' => $data['email'],
@@ -38,7 +48,8 @@ class HomeController{
                         ), 'text/html');
 
             $app['mailer']->send($message);
-
+            $app['session']->getFlashBag()->add('success', 'Email envoyé, nous vous répondrons dès que possible !');
+            return $app->redirect($app['url_generator']->generate('home'));
 
         }
         return $app['twig']->render('contact.html.twig', array(
@@ -48,9 +59,19 @@ class HomeController{
         ));
 	}
 
+
     // Page de reservation 
 	public function reservationAction(Application $app, Request $request){
+
+        $data =[];
+
         $reservationForm = $app['form.factory']->create(ReservationType::class);
+
+        $reservationForm->add('spectacles', ChoiceType::class, array(
+            'choices' => $data,
+            'label'    => 'Type',
+            ));
+        
         $reservationForm->handleRequest($request);
         
         if ($reservationForm->isSubmitted() && $reservationForm->isValid())
@@ -59,11 +80,11 @@ class HomeController{
             $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])
                         ->setFrom(array('promo5wf3@gmx.fr'))
-                        ->setTo(array('votre@mail.com'))
+                        ->setTo(array($data['email']))
                         ->setBody($app['twig']->render('reservation.html.twig',
-                            array('name'=>$data['name'],
-                                   'email' => $data['email'],
-                                   'message' => $data['message']
+                            array('name'        => $data['name'],
+                                   'email'      => $data['email'],
+                                   'message'    => $data['message']
                             )
                         ), 'text/html');
 

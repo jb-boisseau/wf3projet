@@ -1,5 +1,13 @@
 {% extends "layout.html.twig" %} 
 {% block content %}
+
+    {# Message de confirmation #}
+    {% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
 <!-- Qui sommes nous -->
 <section id="quisommenous">
     <div class="container">
@@ -49,21 +57,57 @@
             </div>
         </div>
         <div class="row">
+          
+           {% for spectacle in spectacles %}
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ spectacle.id}}">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/spectacles/entrenousLarge-iloveimg-resized.jpg" alt="logoEntreNous" height="50">
+                    <img class="img-fluid" src="{{asset('uploads/thumbnails/' ~spectacle.image)}}" alt="logoEntreNous" height="50">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>L'un d'entre nous</h4>
-                    <p class="text-muted">Vendredi 8 décembre</p>
+                    <h4>{{ spectacle.title }}</h4>
+                    <p class="text-muted">{{spectacle.dateVenue}}</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
+            {% endfor %}
+            
+           
+               
+                
+                 
+                  
+                   
+                    
+                     
+                      
+                       
+                        
+                         
+                          
+                           
+                            
+                             
+                              
+                               
+                                
+                                 
+                                  
+                                   
+                                    
+                                     
+                                      
+                                       
+                                        
+                                         
+                                          
+                                           
+                                            
+                                             
+                                               <div class="col-md-4 col-sm-6 portfolio-item">
                 <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
@@ -317,52 +361,16 @@
 
 
 
-<!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Nous contacter</h2>
-              <h3 class="section-subheading text-muted">On vous répondra vite!</h3>
-          </div>
-        </div>
-        <div class="col">
-          <div class="col-lg-12">
-            <form  method="POST">
-              <div class="col">
-                  <div class="form-group">
-                    <input class="form-control" name="name" type="text" placeholder="Nom" required data-validation-required-message="Merci de préciser votre nom svp.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" name="email" type="email" placeholder="Adresse e-mail" required data-validation-required-message="Merci de préciser votre adresse e-mail svp.">
-                    <p class="help-block text-danger"></p>
-                  </div>
 
-                  <div class="form-group">
-                    <input class="form-control" name="subject" placeholder="Sujet du message" required data-validation-required-message="Veuillez remplir le sujet du message svp.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control" name="content" placeholder="Votre message" required data-validation-required-message="Veuillez remplir le message svp."></textarea>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                <div class="clearfix"></div>
-                <div class="col-lg-12 text-center">
-                  <div id="success"></div>
-                  <button  class="btn btn-primary btn-xl text-uppercase" type="submit">Envoyer le message</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+
+
 
 <!-- Portfolio Modals -->
 
     <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+               {% for spectacle in spectacles %}
+
+    <div class="portfolio-modal modal fade" id="{{spectacle.image}}" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">
@@ -377,7 +385,7 @@
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">L'un d'entre nous</h2>
                   <p class="item-intro text-muted">Vendredi 8 décembre</p>
-                  <img class="img-fluid d-block mx-auto" src="img/spectacles/entrenousLarge.jpg" alt="">
+                  <img class="img-fluid d-block mx-auto" src="img/spectacles/photo-{{spectacle.id}}.jpg" alt="">
                   <p>Soirée spectacle du 08 décembre 2017
                     La Cité's compagnie organise le vendredi 8 décembre 2017 à 20h00 une soirée Théâtre dans son local « Le Petit Théâtre de la Cité's Compagnie ». Les comédiens vous proposeront le spectacle « L'un d'entre nous (2ème partie) ». Un buffet sera offert après la représentation!
                     Soyez les bienvenus!!!!!!
@@ -400,9 +408,10 @@
         </div>
       </div>
     </div>
+            {% endfor %}
 
     <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="close-modal" data-dismiss="modal">

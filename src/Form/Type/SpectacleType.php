@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints;
 
 
 
@@ -22,11 +23,13 @@ class SpectacleType extends AbstractType
         $builder->add('content', TextareaType::class);
           
         $builder->add('dateVenue', DateType::class, [
-             'widget' => 'single_text'
+            'widget' => 'single_text',
+            'attr'   => ['class' => 'js-datepicker'],
         ]);
         
         $builder->add('nbTickets', TextType::class);
         $builder->add('place', TextType::class);
+        $builder->add('image', ImageType::class);
 
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')

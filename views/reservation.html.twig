@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    <section id="reservation">
+    <section id="contact">
       <div class="container">
           
         <div class="row">
@@ -56,10 +56,17 @@
                         </div>
                 
                         <div class="form-group">
+<<<<<<< HEAD
                             {{ form_label(reservationForm.dateVenue, null) }}
                             <div>
                                 {{ form_errors(reservationForm.dateVenue) }}
                                 {{ form_widget(reservationForm.dateVenue, { 'attr':{
+=======
+                            {{ form_label(reservationForm.spectacles, null) }}
+                            <div>
+                                {{ form_errors(reservationForm.spectacles) }}
+                                {{ form_widget(reservationForm.spectacles, { 'attr':{
+>>>>>>> 567d6e72e1e87d61443e3c78c39e83a965e646a3
                                 'class': 'form-control'}}) }}
                             </div>
                         </div>

@@ -17,9 +17,11 @@
           </div>
         </div>
        
-
+            {{ dump(test)}}
             {{ form_start(spectacleForm)}}
             	
+              
+
 
                 {# Titre #}
             	<div class="form-group">
@@ -66,7 +68,8 @@
                     		'attr':  {
                                'type': 'datetime',
                         		'class': 'form-control',
-                        		'placeholder': 'Entrez une date'
+                        	    
+                               'placeholder': 'Entrez une date'
                             }
                         }
                     )}}
@@ -115,6 +118,21 @@
                     		'attr':  {
                         		'class': 'form-control',
                         		'placeholder': 'Type d\'évenement'
+                            }
+                        }
+                    )}}
+            	</div>
+            	
+            	 {# Image #}
+            	<div class="form-group">
+            		{# affichage des éventuelles erreurs pour le champ contenu #}
+            		{{ form_errors(spectacleForm.image) }}
+            		{# customisation du champ contenu #}
+                    {{ form_widget(spectacleForm.image, 
+                    	{ 
+                    		'attr':  {
+                        		'class': 'form-control',
+                        		'placeholder': "Image de l'évènement"
                             }
                         }
                     )}}

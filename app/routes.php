@@ -6,6 +6,9 @@
 //page d'accueil :
 $app->match('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
 
+//page d'accueil :
+$app->get('/payments', 'WF3\Controller\HomeController::paymentsAction')->bind('payments');
+
 //page de reservation :
 $app->match('/reservation', 'WF3\Controller\HomeController::reservationAction')->bind('reservation');
 
@@ -35,7 +38,7 @@ $app->get('/login', 'WF3\Controller\AdminController::loginAction')->bind('login'
 $app->get('/calendar', 'WF3\Controller\HomeController::calendarPageAction')->bind('calendar');
 
 //Lien vers contact :
-$app->match('/contact', 'WF3\Controller\HomeController::contactAction')->bind('contactezmoi');
+$app->match('/contact', 'WF3\Controller\HomeController::contactAction')->bind('contact');
 
 
 //Déconnexion pour les administrateurs :

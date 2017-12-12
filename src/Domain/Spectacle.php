@@ -12,7 +12,6 @@ class Spectacle{
     private $nbTickets;
     private $place;
     private $type;
-    private $photo;
     private $image;
 
 
@@ -48,12 +47,10 @@ class Spectacle{
     public function getType(){
         return $this->type;
     }
+    
+  
     public function getImage(){
         return $this->image;
-    }
-    
-     public function getPhoto(){
-        return $this->photo;
     }
 
 
@@ -105,12 +102,6 @@ class Spectacle{
         }       
     }
 
-    public function setPhoto($photo){    
-        if(!empty($photo)){ 
-            $this->photo = $photo;  
-        }       
-    }
-    
     public function setImage($image){    
         if(!empty($image)){ 
             $this->image = $image;  

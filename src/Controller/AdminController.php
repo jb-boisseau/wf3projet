@@ -33,7 +33,7 @@ class AdminController{
 
         if($spectacleForm->isSubmitted() AND $spectacleForm->isValid()){
             $path =__DIR__.'/../..'.$app['upload_dir'];
-            $file = $request->files->get('register')['image'];
+            $file = $request->files->get('spectacle')['image']['image'];
             $filename       = md5(uniqid()) . '.' . $file->guessExtension();
             $spectacle      -> setImage($filename);            
             $datetime       = $spectacle->getDateVenue();
@@ -46,7 +46,9 @@ class AdminController{
 
         return $app['twig']->render('admin/ajoutSpectacle.html.twig', array(
                 'spectacleForm' => $spectacleForm->createView(),
-                'title' => 'ajout'
+                'title' => 'ajout',
+                'test' => $request->files
+            
         ));
     }
 
@@ -55,7 +57,7 @@ class AdminController{
     public function deleteSpectacleAction(Application $app, $id){
         $spectacle = $app['dao.spectacle']->delete($id);
         //on crée un message de réussite dans la session
-        $app['session']->getFlashBag()->add('success', 'Représentation bien supprimé');
+        $app['session']->getFlashBag()->add('success', 'Représentation bien supprimée');
         //on redirige vers la page d'accueil
         return $app->redirect($app['url_generator']->generate('homeAdmin'));
 

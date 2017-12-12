@@ -10,8 +10,7 @@ use WF3\Domain\Livredor;
 use WF3\Form\Type\LivredorType;
 use WF3\Form\Type\ContactType;
 use WF3\Form\Type\UploadImageType;
-use WF3\Form\Type\ChoiceType;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class HomeController{
 
@@ -60,8 +59,6 @@ class HomeController{
 	}
 
 
-    
-
     // Page de reservation 
 	public function reservationAction(Application $app, Request $request){
 
@@ -99,7 +96,6 @@ class HomeController{
             'data' => $reservationForm->getData()
         ));
 	}
-	
 
 	//Page du calendrier :
 	public function calendarPageAction(Application $app, Request $request){

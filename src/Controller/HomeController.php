@@ -119,4 +119,14 @@ class HomeController{
 			array('livredorForm'=>$livredorForm->createView())
 		);
 	}
+    
+    //page du livre d'or :
+    public function livreDorMessagesAction(Application $app){
+        
+        $messages = $app['dao.livredor']->findAll();
+
+        return $app['twig']->render('livredor.message.html.twig',
+            array('messages'=>$messages)
+        );
+    }
 }

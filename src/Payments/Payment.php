@@ -8,9 +8,9 @@
 
 namespace wf3\Payments;
 
-use PayPal\Api\ItemList;
-use PayPal\Api\Item;
-use PayPal\Rest\ApiContext;
+use wf3\Payments\ItemList;
+use wf3\Payments\Item;
+use wf3\Payments\ApiContext;
 
 abstract class Payment
 {

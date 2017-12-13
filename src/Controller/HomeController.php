@@ -21,8 +21,9 @@ class HomeController{
     }
 
 
-	// Page d'accueil qui affiche tous les articles :
+	// Page de paiement qui affiche le boutton paypal :
 	public function paymentsAction(Application $app){
+        
 	 	return $app['twig']->render('payments.html.twig');
 	}
 

@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
-   <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+<!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>La Cité's Compagnie</title>
-    
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    
+
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-    
+
     <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.css' rel='stylesheet' type='text/css'>
     <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.css' rel='stylesheet' type='text/css'>
-    
-   
-    </head>
+
+
+</head>
 
 <body id="page-top">
-   
-   
-   
-   <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
-   
-   
-    <!-------------------------- Barre de NAV  ---------------------------------------->  
+
+
+
+    <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+
+    <!-------------------------- Barre de NAV  ---------------------------------------->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container"> <a class="navbar-brand js-scroll-trigger" href="{{path('home')}}#page-top">La Cité's Compagnie
            </a>
@@ -45,40 +46,40 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#quisommenous">Qui sommes nous</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#quisommenous">Qui sommes nous</a>
                     </li>
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a>
                     </li>
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#presse">Presse</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#presse">Presse</a>
                     </li>
-                                        
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('contact')}}">Contact</a> 
-                    </li> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('contact')}}">Contact</a>
+                    </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{ path('homeAdmin')}}">Administration</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{ path('homeAdmin')}}">Administration</a>
                     </li>
-                   
-                     <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('logout')}}">Déconnexion</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('logout')}}">Déconnexion</a>
                     </li>
                     {% else %}
-                   
-                     <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('login')}}">Connexion</a> 
-                    </li> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('login')}}">Connexion</a>
+                    </li>
                     {% endif %} </ul>
             </div>
         </div>
     </nav>
-           <!------------------------ Fin de la NAV --------------------->
-           
-           
-           
-           
-           
-           <!---------------------------- Header------------------------>
+    <!------------------------ Fin de la NAV --------------------->
+
+
+
+
+
+    <!---------------------------- Header------------------------>
     <header class="masthead">
         <div class="container">
             <div class="intro-text">
@@ -86,41 +87,41 @@
                 <div class="intro-heading text-uppercase"></div> <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{path('reservation')}}">Réservez vos places en ligne!</a> </div>
         </div>
     </header>
-            <!----------------------- Fin du Header --------------------->
-            
-            
-            
-            
-            
-         
-                    
-                    
-       <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
-            
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    <!----------------- Block content ------------------------------->
+    <!----------------------- Fin du Header --------------------->
 
-{% block content %} {% endblock %}
-    
-                    <!----------------- Fin du Block content ------------------------>
-                    
-                    
-               <div id="calendar" class="row" display="flex"></div>         
-                        
-                    
-                    
-                    
-                    
-                    
-                    
 
-                    <!----------------- Footer--------------------------------------->
+
+
+
+
+
+
+    <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+
+
+
+
+
+
+
+    <!----------------- Block content ------------------------------->
+
+    {% block content %} {% endblock %}
+
+    <!----------------- Fin du Block content ------------------------>
+
+
+    <div id="calendar" class="row" display="flex"></div>
+
+
+
+
+
+
+
+
+    <!----------------- Footer--------------------------------------->
     <footer>
         <div class="container">
             <div class="row">
@@ -138,19 +139,19 @@
             </div>
         </div>
     </footer>
-    
-                    <!----------------- Fin du Footer -------------------------------->
 
-   
-   
-   
-   
-   
-      
-   
-   
-   
-   
+    <!----------------- Fin du Footer -------------------------------->
+
+
+
+
+
+
+
+
+
+
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -162,23 +163,24 @@
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
     <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.js' rel='javascript' type='text/javascript'></script>
-    <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.js' rel='javascript' type='text/javascript'> </script>
+    <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.js' rel='javascript' type='text/javascript'>
+    </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
 
-    
-    
-    
-    
-    
-       <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
 
-    
-    
-    
-    
-                <!----------------------- Calendrier ------------------------>
 
-        <!--<script>
+
+
+
+    <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+
+
+
+
+    <!----------------------- Calendrier ------------------------>
+
+    <!--<script>
             function editEvent(event) {
                 $('#event-modal input[name="event-index"]').val(event ? event.id : '');
                 $('#event-modal input[name="event-name"]').val(event ? event.name : '');
@@ -355,7 +357,8 @@
             });
             
         </script>--}}-->
-                    <!----------------- Fin du Calendrier --------------------------->
+    <!----------------- Fin du Calendrier --------------------------->
 </body>
 <!--Arnaud est un petit pd-->
+
 </html>

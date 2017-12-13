@@ -19,7 +19,8 @@ class AdminController{
     //page d'accueil du back office
     public function indexAction(Application $app){
         $spectacles = $app['dao.spectacle']->LastShow();
-        return $app['twig']->render('admin/homeAdmin.html.twig', array('spectacles'=>$spectacles));
+        $articles = $app['dao.press']->findAll();
+        return $app['twig']->render('admin/homeAdmin.html.twig', array('spectacles'=>$spectacles, 'articles'=>$articles));
     }
 
     

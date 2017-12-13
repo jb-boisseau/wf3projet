@@ -33,8 +33,7 @@ class HomeController{
         $contactForm = $app['form.factory']->create(ContactType::class);
         $contactForm->handleRequest($request);
         
-        if ($contactForm->isSubmitted() && $contactForm->isValid())
-        {
+        if ($contactForm->isSubmitted() && $contactForm->isValid()){
             $data = $contactForm->getData();
             $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])

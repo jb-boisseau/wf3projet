@@ -14,7 +14,6 @@ class Spectacle{
     private $type;
     private $image;
     private $price;
-
     private $reservation;
 
 

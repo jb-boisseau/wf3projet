@@ -50,5 +50,15 @@ $app->match('/ajax/prix', 'WF3\Controller\AjaxController::PrixAction')
 $app->match('/ajax/reservation', 'WF3\Controller\AjaxController::reservationAction')
 ->bind('ajaxReservation');
 
+//Ajout d'un Article de Presse :
+$app->match('/admin/ajoutPress', 'WF3\Controller\AdminController::ajoutPressAction')->bind('ajoutPress');
 
-//Déconnexion pour les administrateurs :
+//Supprimer un Article de Presse :
+$app->get('/admin/deletePress/{id}', 'WF3\Controller\AdminController::deletePressAction')
+->assert('id', '\d+')
+->bind('deletePress');
+
+//modification d'un presse dans l'admin :
+$app->match('/admin/updatePress/{id}', 'WF3\Controller\AdminController::updatePressAction')
+->assert('id', '\d+')
+->bind('updatePress');

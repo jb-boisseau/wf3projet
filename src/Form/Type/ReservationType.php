@@ -22,6 +22,7 @@ class ReservationType extends AbstractType
        
     $builder
 
+
         
         ->add('dateVenue', DateType::class, array('label'=>'Date du Spectacle',
                 'widget' => 'single_text'
@@ -34,6 +35,7 @@ class ReservationType extends AbstractType
             
         ->add('nbTicket', ChoiceType::class, array('label'=>'Nombre de Ticket','choices'=> array(1=>1,2=>2,3=>3,4=>4,5=>5,6=>6
                 )))
+
 
 
         //Email :

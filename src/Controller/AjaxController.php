@@ -13,7 +13,6 @@ class AjaxController{
         //Récupération de l'id du Spectacle :
         $id = $request->request->get('idSpectacle');
         $spectacle = $app['dao.spectacle']->find($id);
-        
         //Nombre de places restantes pour ce Spectacle :
         $placeRestante = ($spectacle->getNbTickets() - $spectacle->getReservation());
 

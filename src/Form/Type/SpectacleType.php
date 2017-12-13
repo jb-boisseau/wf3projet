@@ -11,7 +11,9 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 
@@ -20,7 +22,6 @@ class SpectacleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class);
-        $builder->add('photo', TextType::class);
         $builder->add('content', TextareaType::class);
           
         $builder->add('dateVenue', DateType::class, [
@@ -30,7 +31,17 @@ class SpectacleType extends AbstractType
         
         $builder->add('nbTickets', TextType::class);
         $builder->add('place', TextType::class);
-        $builder->add('image', Imagetype::class);
+        $builder->add('image', FileType::class,
+                    array(
+                        "data_class" => NULL,
+                        'constraints' => array(
+                            new Assert\Image(
+                                array('maxSize' => '2000K')
+                            )
+                        )
+                    )
+                );
+        $builder->add('price', TextType::class);
 
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')

@@ -17,7 +17,7 @@
           </div>
         </div>
        
-
+            {{ dump(test)}}
             {{ form_start(spectacleForm)}}
             	
               
@@ -56,7 +56,7 @@
                         }
                     )}}
             	</div>
-
+                
 
                 {# Date du Spectacle #}
             	<div class="form-group">
@@ -74,6 +74,22 @@
                         }
                     )}}
             	</div>
+            	
+            	
+            	{# Prix du spectacle #}
+            	<div class="form-group">
+            		{# affichage des éventuelles erreurs pour le champ contenu #}
+            		{{ form_errors(spectacleForm.price) }}
+            		{# customisation du champ contenu #}
+                    {{ form_widget(spectacleForm.price, 
+                    	{ 
+                    		'attr':  {
+                        		'class': 'form-control',
+                        	    'placeholder': 'Choisissez un prix'
+                            }
+                        }
+                    )}}
+            	</div>
 
 
                 {# Nombre de places Disponibles #}
@@ -85,7 +101,7 @@
                     	{ 
                     		'attr':  {
                         		'class': 'form-control',
-                        		'placeholder': 'Entrez le places disponibles'
+                        		'placeholder': 'Nombre de places disponibles'
                             }
                         }
                     )}}
@@ -101,7 +117,7 @@
                     	{ 
                     		'attr':  {
                         		'class': 'form-control',
-                        		'placeholder': 'Lieu de la représentation'
+                        		'placeholder': 'Lieu du spectacle'
                             }
                         }
                     )}}
@@ -118,6 +134,21 @@
                     		'attr':  {
                         		'class': 'form-control',
                         		'placeholder': 'Type d\'évenement'
+                            }
+                        }
+                    )}}
+            	</div>
+            	
+            	 {# Image #}
+            	<div class="form-group">
+            		{# affichage des éventuelles erreurs pour le champ contenu #}
+            		{{ form_errors(spectacleForm.image) }}
+            		{# customisation du champ contenu #}
+                    {{ form_widget(spectacleForm.image, 
+                    	{ 
+                    		'attr':  {
+                        		'class': 'form-control',
+                        		'placeholder': "Image de l'évènement"
                             }
                         }
                     )}}

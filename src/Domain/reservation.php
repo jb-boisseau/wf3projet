@@ -1,14 +1,14 @@
 <?php
 namespace WF3\Domain;
 //creation d'une class livredor
-class Livredor
+class Reservation
 {
 
     public $id;
     public $name;
     public $email;
-    public $nb_ticket;
-    public $date_add;
+    public $nbTicket;
+    public $dateAdd;
 
      //Déclaration des GETTERS :
 
@@ -24,11 +24,11 @@ class Livredor
        return $this->email;
    }
    
-   public function getNb_ticket(){
-       return $this->nb_ticket;
+   public function getNbTicket(){
+       return $this->nbTicket;
    }
-    public function getDate_add(){
-       return $this->date_add;
+    public function getDateAdd(){
+       return $this->dateAdd;
    }
 
 //Déclaration des SETTERS :
@@ -47,14 +47,14 @@ class Livredor
        }
    }
 
-   public function setNb_ticket($nb_ticket){
-       if(!empty($nb_ticket) AND is_string($nb_ticket)){
-           $this->nb_ticket = $nb_ticket;
+   public function setNbTicket($nbTicket){
+       if(!empty($nbTicket) AND is_string($nbTicket)){
+           $this->nbTicket = $nbTicket;
        }
    }
-    public function setDate_add($date_add){
-       if(!empty($date_add) AND is_string($date_add)){
-           $this->date_add = $date_add;
+    public function setDateAdd($dateAdd){
+       if(!empty($dateAdd) AND is_string($dateAdd)){
+           $this->dateAdd = $dateAdd;
        }
    }
 

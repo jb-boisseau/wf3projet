@@ -62,15 +62,17 @@ class HomeController{
 
     // Page de reservation 
 	public function reservationAction(Application $app, Request $request){
-
-        $data =[];
+        //Récupération des données dans $data
+        $data = $app['dao.spectacle']->findAll();
+        $listed= array('Choisissez votre spectacle'=>0);
+        
+        foreach($data as $spectacle){
+            $listed[$spectacle->getTitle()] = $spectacle->getId();
+        }
 
         $reservationForm = $app['form.factory']->create(ReservationType::class);
 
-        $reservationForm->add('spectacles', ChoiceType::class, array(
-            'choices' => $data,
-            'label'    => 'Type',
-            ));
+        $reservationForm->add('spectacles', ChoiceType::class, array('choices'=>$listed));
         
         $reservationForm->handleRequest($request);
         
@@ -116,4 +118,14 @@ class HomeController{
 			array('livredorForm'=>$livredorForm->createView())
 		);
 	}
+    
+    //page du livre d'or :
+    public function livreDorMessagesAction(Application $app){
+        
+        $messages = $app['dao.livredor']->findAll();
+
+        return $app['twig']->render('livredor.message.html.twig',
+            array('messages'=>$messages)
+        );
+    }
 }

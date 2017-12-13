@@ -9,7 +9,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -38,21 +37,16 @@ class ReservationType extends AbstractType
 
 
         //Email :
-        ->add('email', TextType::class, array('label'=>'Entrer votre Email',
+        ->add('email', TextType::class, array(
                 'attr' => array(
                     'placeholder' => 'Votre Email'
                 ),
                 'constraints' => new Assert\Email()
             )) 
-            
-
-        //Choix du Spectacle :
-        ->add('spectacles', ChoiceType::class)
-
 
 
         //Nombre de tickets voulus :
-        ->add('ticket', TextType::class, array('label'=>'Nombre de Tickets',
+        ->add('ticket', TextType::class, array(
             'attr' => array(
                 'placeholder' => 'Entrez le nombre de places souhaitées'
             ),
@@ -62,9 +56,8 @@ class ReservationType extends AbstractType
            
 
         // Nom :
-        ->add('name', TextType::class, array('label'=>'Entrer votre Nom',
-
-                'attr' => array(
+        ->add('name', TextType::class, array(
+            'attr' => array(
                 'placeholder' => 'Votre Nom '
             ),
             'constraints' => array(

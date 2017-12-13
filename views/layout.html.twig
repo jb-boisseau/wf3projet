@@ -21,6 +21,7 @@
     
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     
     <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.css' rel='stylesheet' type='text/css'>
     <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.css' rel='stylesheet' type='text/css'>
@@ -111,7 +112,6 @@
                     <!----------------- Fin du Block content ------------------------>
                     
                     
-               <div id="calendar" class="row" display="flex"></div>         
                         
                     
                     
@@ -171,8 +171,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
 
     
-    
-    
+    {% block javascript %}
+    {% endblock %}
     
     
        <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->

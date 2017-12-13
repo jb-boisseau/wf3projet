@@ -27,4 +27,5 @@ class SpectacleDAO extends DAO{
         }
 		return $objectsArray;
     }   
+
 }

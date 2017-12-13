@@ -15,6 +15,8 @@ $app->match('/reservation', 'WF3\Controller\HomeController::reservationAction')-
 //Livre d'or :
 $app->match('/livreDor', 'WF3\Controller\HomeController::livreDorAction')->bind('livreDor');
 
+$app->match('/livreDor-messages', 'WF3\Controller\HomeController::livreDorMessagesAction')->bind('livreDorMessages');
+
 //Page Menu admin :
 $app->get('/admin', 'WF3\Controller\AdminController::indexAction')->bind('homeAdmin');
 
@@ -39,6 +41,14 @@ $app->get('/calendar', 'WF3\Controller\HomeController::calendarPageAction')->bin
 
 //Lien vers contact :
 $app->match('/contact', 'WF3\Controller\HomeController::contactAction')->bind('contact');
+
+//Route AJAX, pour récupérer le prix d'un spectacle :
+$app->match('/ajax/prix', 'WF3\Controller\AjaxController::PrixAction')
+->bind('ajaxPrix');
+
+//Route AJAX, pour récupérer les réservations d'un spectacle :
+$app->match('/ajax/reservation', 'WF3\Controller\AjaxController::reservationAction')
+->bind('ajaxReservation');
 
 
 //Déconnexion pour les administrateurs :

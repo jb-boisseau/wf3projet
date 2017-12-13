@@ -13,6 +13,7 @@ class Spectacle{
     private $place;
     private $type;
     private $image;
+    private $price;
 
 
 
@@ -53,6 +54,9 @@ class Spectacle{
         return $this->image;
     }
 
+    public function getPrice(){
+        return $this->price;
+    }
 
 
 
@@ -105,6 +109,12 @@ class Spectacle{
     public function setImage($image){    
         if(!empty($image)){ 
             $this->image = $image;  
+        }       
+    }
+    
+    public function setPrice($price){    
+        if(!empty($price)){ 
+            $this->price = $price;  
         }       
     }
 }

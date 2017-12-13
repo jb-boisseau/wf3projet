@@ -16,7 +16,7 @@ class AdminController{
 
     //page d'accueil du back office
     public function indexAction(Application $app){
-        $spectacles = $app['dao.spectacle']->findAll();
+        $spectacles = $app['dao.spectacle']->LastShow();
         return $app['twig']->render('admin/homeAdmin.html.twig', array('spectacles'=>$spectacles));
     }
 
@@ -33,7 +33,7 @@ class AdminController{
 
         if($spectacleForm->isSubmitted() AND $spectacleForm->isValid()){
             $path =__DIR__.'/../..'.$app['upload_dir'];
-            $file = $request->files->get('spectacle')['image']['image'];
+            $file = $request->files->get('spectacle')['image'];
             $filename       = md5(uniqid()) . '.' . $file->guessExtension();
             $spectacle      -> setImage($filename);
                 $extension = $file->guessExtension();
@@ -41,7 +41,7 @@ class AdminController{
                 //je décide que mes miniatures ont une largeur de 200px
                 $newWidth = 200;
 
-                if($extension == 'jpg' ){
+                if($extension == 'jpg' or 'jpeg' ){
                     //jpeg ou pjg
                     $newImage = imagecreatefromjpeg($file->getPathname());  
                 }
@@ -90,6 +90,8 @@ class AdminController{
                 else{
                     imagegif($miniature, $thumbnailsFolder . $filename);
                 }
+            $file->move(
+                'uploads/img', $filename);
         
             $datetime       = $spectacle->getDateVenue();
             $spectacle      ->setDateVenue($datetime->format('Y-m-d h:i:s'));
@@ -131,6 +133,7 @@ class AdminController{
         $spectacle = $app['dao.spectacle']->find($id);
         $image=$spectacle->getImage();
         $spectacle->setImage(NULL);
+            
         $spectacle->setDateVenue(new \DateTime($spectacle->getDateVenue()));
         //on crée le formulaire et on lui passe le spectacle en paramètre
         //il va utiliser $article pour pré remplir les champs
@@ -141,35 +144,87 @@ class AdminController{
         if($spectacleForm->isSubmitted() && $spectacleForm->isValid()){
             //si le formulaire a été soumis
             //on update avec les données envoyées par l'utilisateur
-                if($spectacle->getImage()===NULL){
-                    $spectacle->setImage($image);
-                    $app['dao.spectacle']->update($id, $spectacle);
-                    $app['session']->getFlashBag()->add('success', 'Image bien modifiée');
+
+            $path=__DIR__.'/../..'.$app['upload_dir'] . 'imdfgsdfgg/';
+            $file= $request->files->get('spectacle')['image'];
+            $filename=md5(uniqid()).'.'.$file->guessExtension();
+            //je récupère l'ancienne image
+            $image = $spectacle->getImage();
+             $extension = $file->guessExtension();
+                //on va créer une miniature
+                //je décide que mes miniatures ont une largeur de 200px
+                $newWidth = 200;
+
+                if($extension == 'jpg' or 'jpeg' ){
+                    //jpeg ou pjg
+                    $newImage = imagecreatefromjpeg($file->getPathname());  
+                }
+                elseif($extension == 'png'){
+                    //png
+                    $newImage = imagecreatefrompng($file->getPathname());
                 }
                 else{
-                    $path=__DIR__.'/../..'.$app['upload_dir'];
-                    $file= $request->files->get('register')['image'];
-                    $filename=md5(uniqid()).'.'.$file->guessExtension();
-                    $spectacle->setImage($filename); 
-                    $app['dao.spectacle']->update($id, $spectacle);
-                    $file->move($path,$filename);
+                    //fichier gif
+                    $newImage = imagecreatefromgif($file->getPathname());
                 }
-                if(file_exists('../'.$app['upload_dir'] . "/" .$image)){
-                    unlink('../'.$app['upload_dir'] . "/" .$image);
-                    $app['session']->getFlashBag()->add('success', 'Image bien modifiée');
+
+                //on récupère les dimensions de l'image
+                //largeur
+                $imageWidth = imagesx($newImage);
+                //hauteur
+                $imageHeight = imagesy($newImage);
+
+                //j'ai décidé de la largeur des mes miniatures (200px), je dois donc calculer la nouvelle hauteur (on doit conserver le ratio pour ne pas déformer l'image)
+                //on calcule la nouvelle hauteur
+                $newHeight = ($imageHeight * $newWidth) / $imageWidth;
+
+                //on crée la miniature
+                $miniature = imagecreatetruecolor($newWidth, $newHeight);
+                
+                if($extension == 'png'){
+                    imagesavealpha($miniature, true);
+                    $white = imagecolorallocate($miniature, 255, 255, 255);
+                    // On rend l'arrière-plan transparent
+                    imagecolortransparent($miniature, $white);
                 }
+
+                //on va ensuite "remplir" la miniature à partir de l'image envoyée
+                imagecopyresampled($miniature, $newImage, 0, 0, 0, 0, $newWidth, $newHeight, $imageWidth, $imageHeight);
+
+                //on définit le dossier qui va contenir les miniatures
+                $thumbnailsFolder = 'uploads/thumbnails/';
+
+                //on teste l'extension
+                if($extension == 'jpg'){
+                    imagejpeg($miniature, $thumbnailsFolder . $filename);
+                }
+                elseif($extension == 'png'){
+                    imagepng($miniature, $thumbnailsFolder . $filename);
+                }
+                else{
+                    imagegif($miniature, $thumbnailsFolder . $filename);
+                }
+            $spectacle->setImage($filename); 
+            $file->move(
+                'uploads/img', $filename);
+            if(file_exists('../'.$app['upload_dir'] . "img/" .$image)){
+                unlink('../'.$app['upload_dir'] . "img/" .$image);
+            }                    
+            
+                
 
             $datetime=$spectacle->getDateVenue();
             $spectacle->setDateVenue($datetime->format('Y-m-d h:i:s'));
             $app['dao.spectacle']->update($id, $spectacle);
             $app['session']->getFlashBag()->add('success', 'Représentation bien modifiée');
-            //on redirige vers la page d'accueil
-            return $app->redirect($app['url_generator']->generate('homeAdmin'));
+            
         }
 
-        return $app['twig']->render('admin/modifierSpectacle.html.twig', array(
+        return $app['twig']     ->render('admin/modifierSpectacle.html.twig', array(
                 'spectacleForm' => $spectacleForm->createView(),
-                'title' => 'modif')
+                'title'         => 'modification',
+                'spectacle'     => $spectacle,
+                'test'          => $request->files)
                );
         //on redirige vers la page d'accueil
     }

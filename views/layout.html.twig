@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-   <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+<!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>La Cité's Compagnie</title>
-    
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    
+
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    
+
+
     <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.css' rel='stylesheet' type='text/css'>
     <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.css' rel='stylesheet' type='text/css'>
-    
-   
-    </head>
+
+
+</head>
 
 <body id="page-top">
-   
-   
-   
-   <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
-   
-   
-    <!-------------------------- Barre de NAV  ---------------------------------------->  
+
+
+
+    <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+
+    <!-------------------------- Barre de NAV  ---------------------------------------->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container"> <a class="navbar-brand js-scroll-trigger" href="{{path('home')}}#page-top">La Cité's Compagnie
            </a>
@@ -46,40 +48,40 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#quisommenous">Qui sommes nous</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#quisommenous">Qui sommes nous</a>
                     </li>
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a>
                     </li>
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#presse">Presse</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#presse">Presse</a>
                     </li>
-                                        
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('contact')}}">Contact</a> 
-                    </li> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('contact')}}">Contact</a>
+                    </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    
-                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{ path('homeAdmin')}}">Administration</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{ path('homeAdmin')}}">Administration</a>
                     </li>
-                   
-                     <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('logout')}}">Déconnexion</a> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('logout')}}">Déconnexion</a>
                     </li>
                     {% else %}
-                   
-                     <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('login')}}">Connexion</a> 
-                    </li> 
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('login')}}">Connexion</a>
+                    </li>
                     {% endif %} </ul>
             </div>
         </div>
     </nav>
-           <!------------------------ Fin de la NAV --------------------->
-           
-           
-           
-           
-           
-           <!---------------------------- Header------------------------>
+    <!------------------------ Fin de la NAV --------------------->
+
+
+
+
+
+    <!---------------------------- Header------------------------>
     <header class="masthead">
         <div class="container">
             <div class="intro-text">
@@ -87,9 +89,8 @@
                 <div class="intro-heading text-uppercase"></div> <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{path('reservation')}}">Réservez vos places en ligne!</a> </div>
         </div>
     </header>
+
             <!----------------------- Fin du Header --------------------->
-            
-            
             
             
             
@@ -98,21 +99,18 @@
                     
        <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
             
-                    
-                    
-                    
-                    
-                    
+
                     
                     
                     <!----------------- Block content ------------------------------->
 
-{% block content %} {% endblock %}
+                                    {% block content %} 
+
+                                    {% endblock %}
     
                     <!----------------- Fin du Block content ------------------------>
                     
                     
-               <div id="calendar" class="row" display="flex"></div>         
                         
                     
                     
@@ -121,7 +119,7 @@
                     
                     
 
-                    <!----------------- Footer--------------------------------------->
+                     <!----------------- Footer--------------------------------------->
     <footer>
         <div class="container">
             <div class="row">
@@ -138,19 +136,20 @@
                 </div>
             </div>
         </div>
+      
     </footer>
+
     
                     <!----------------- Fin du Footer -------------------------------->
 
-   
-   
-   
-   
-   
-      
-   
-   
-   
+
+
+
+
+
+
+
+
    
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -163,8 +162,10 @@
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
     <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.js' rel='javascript' type='text/javascript'></script>
-    <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.js' rel='javascript' type='text/javascript'> </script>
+    <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.js' rel='javascript' type='text/javascript'>
+    </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+
 
     
     {% block javascript %}
@@ -175,188 +176,9 @@
 
     
     
-    
-    
-                <!----------------------- Calendrier ------------------------>
-
-        <!--<script>
-            function editEvent(event) {
-                $('#event-modal input[name="event-index"]').val(event ? event.id : '');
-                $('#event-modal input[name="event-name"]').val(event ? event.name : '');
-                $('#event-modal input[name="event-location"]').val(event ? event.location : '');
-                $('#event-modal input[name="event-start-date"]').datepicker('update', event ? event.startDate : '');
-                $('#event-modal input[name="event-end-date"]').datepicker('update', event ? event.endDate : '');
-                $('#event-modal').modal();
-            }
-
-            function deleteEvent(event) {
-                var dataSource = $('#calendar').data('calendar').getDataSource();
-                for (var i in dataSource) {
-                    if (dataSource[i].id == event.id) {
-                        dataSource.splice(i, 1);
-                        break;
-                    }
-                }
-                $('#calendar').data('calendar').setDataSource(dataSource);
-            }
-
-            function saveEvent() {
-                var event = {
-                    id: $('#event-modal input[name="event-index"]').val()
-                    , name: $('#event-modal input[name="event-name"]').val()
-                    , location: $('#event-modal input[name="event-location"]').val()
-                    , startDate: $('#event-modal input[name="event-start-date"]').datepicker('getDate')
-                    , endDate: $('#event-modal input[name="event-end-date"]').datepicker('getDate')
-                }
-                var dataSource = $('#calendar').data('calendar').getDataSource();
-                if (event.id) {
-                    for (var i in dataSource) {
-                        if (dataSource[i].id == event.id) {
-                            dataSource[i].name = event.name;
-                            dataSource[i].location = event.location;
-                            dataSource[i].startDate = event.startDate;
-                            dataSource[i].endDate = event.endDate;
-                        }
-                    }
-                }
-                else {
-                    var newId = 0;
-                    for (var i in dataSource) {
-                        if (dataSource[i].id > newId) {
-                            newId = dataSource[i].id;
-                        }
-                    }
-                    newId++;
-                    event.id = newId;
-                    dataSource.push(event);
-                }
-                $('#calendar').data('calendar').setDataSource(dataSource);
-                $('#event-modal').modal('hide');
-            }
-            $(function () {
-                var currentYear = new Date().getFullYear();
-                $('#calendar').calendar({
-                    enableContextMenu: true
-                    , enableRangeSelection: true
-                    , contextMenuItems: [
-                        {
-                            text: 'Update'
-                            , click: editEvent
-            }
-                        , {
-                            text: 'Delete'
-                            , click: deleteEvent
-            }
-        ]
-                    , selectRange: function (e) {
-                        editEvent({
-                            startDate: e.startDate
-                            , endDate: e.endDate
-                        });
-                    }
-                    , mouseOnDay: function (e) {
-                        if (e.events.length > 0) {
-                            var content = '';
-                            for (var i in e.events) {
-                                content += '<div class="event-tooltip-content">' + '<div class="event-name" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>' + '<div class="event-location">' + e.events[i].location + '</div>' + '</div>';
-                            }
-                            $(e.element).popover({
-                                trigger: 'manual'
-                                , container: 'body'
-                                , html: true
-                                , content: content
-                            });
-                            $(e.element).popover('show');
-                        }
-                    }
-                    , mouseOutDay: function (e) {
-                        if (e.events.length > 0) {
-                            $(e.element).popover('hide');
-                        }
-                    }
-                    , dayContextMenu: function (e) {
-                        $(e.element).popover('hide');
-                    }
-                    , dataSource: [
-                        {
-                            id: 0
-                            , name: 'Google I/O'
-                            , location: 'San Francisco, CA'
-                            , startDate: new Date(currentYear, 4, 28)
-                            , endDate: new Date(currentYear, 4, 29)
-            }
-                        , {
-                            id: 1
-                            , name: 'Microsoft Convergence'
-                            , location: 'New Orleans, LA'
-                            , startDate: new Date(currentYear, 2, 16)
-                            , endDate: new Date(currentYear, 2, 19)
-            }
-                        , {
-                            id: 2
-                            , name: 'Microsoft Build Developer Conference'
-                            , location: 'San Francisco, CA'
-                            , startDate: new Date(currentYear, 3, 29)
-                            , endDate: new Date(currentYear, 4, 1)
-            }
-                        , {
-                            id: 3
-                            , name: 'Apple Special Event'
-                            , location: 'San Francisco, CA'
-                            , startDate: new Date(currentYear, 8, 1)
-                            , endDate: new Date(currentYear, 8, 1)
-            }
-                        , {
-                            id: 4
-                            , name: 'Apple Keynote'
-                            , location: 'San Francisco, CA'
-                            , startDate: new Date(currentYear, 8, 9)
-                            , endDate: new Date(currentYear, 8, 9)
-            }
-                        , {
-                            id: 5
-                            , name: 'Chrome Developer Summit'
-                            , location: 'Mountain View, CA'
-                            , startDate: new Date(currentYear, 10, 17)
-                            , endDate: new Date(currentYear, 10, 18)
-            }
-                        , {
-                            id: 6
-                            , name: 'F8 2015'
-                            , location: 'San Francisco, CA'
-                            , startDate: new Date(currentYear, 2, 25)
-                            , endDate: new Date(currentYear, 2, 26)
-            }
-                        , {
-                            id: 7
-                            , name: 'Yahoo Mobile Developer Conference'
-                            , location: 'New York'
-                            , startDate: new Date(currentYear, 7, 25)
-                            , endDate: new Date(currentYear, 7, 26)
-            }
-                        , {
-                            id: 8
-                            , name: 'Android Developer Conference'
-                            , location: 'Santa Clara, CA'
-                            , startDate: new Date(currentYear, 11, 1)
-                            , endDate: new Date(currentYear, 11, 4)
-            }
-                        , {
-                            id: 9
-                            , name: 'LA Tech Summit'
-                            , location: 'Los Angeles, CA'
-                            , startDate: new Date(currentYear, 10, 17)
-                            , endDate: new Date(currentYear, 10, 17)
-            }
-        ]
-                });
-                $('#save-event').click(function () {
-                    saveEvent();
-                });
-            });
-            
-        </script>--}}-->
-                    <!----------------- Fin du Calendrier --------------------------->
 </body>
-<!--Arnaud est un petit pd-->
+
+  
+    <!-----------------------------------ON N 'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
 </html>

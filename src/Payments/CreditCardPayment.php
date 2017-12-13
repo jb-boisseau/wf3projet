@@ -8,19 +8,19 @@
 
 namespace wf3\Payments;
 
-use PayPal\Api\Address;
-use PayPal\Api\Amount;
-use PayPal\Api\CreditCard;
-use PayPal\Api\Details;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
-use PayPal\Rest\ApiContext;
+use wf3\Payments\Address;
+use wf3\Payments\Amount;
+use wf3\Payments\CreditCard;
+use wf3\Payments\Details;
+use wf3\Payments\FundingInstrument;
+use wf3\Payments\ItemList;
+use wf3\Payments\Payer;
+use wf3\Payments\Payment;
+use wf3\Payments\RedirectUrls;
+use wf3\Payments\Transaction;
+use Pwf3\Payments\ApiContext;
 
-class CreditCardPayment extends \SKoziel\Silex\PayPalRest\Payments\Payment
+class CreditCardPayment extends wf3\Payments\Payment
 {
 
     private $creditCard;

@@ -111,6 +111,8 @@ class HomeController{
 		$livredorForm->handleRequest($request);
 		if($livredorForm->isSubmitted() && $livredorForm->isValid()){
 			$app['dao.livredor']->insert($livredor);
+            $app['session']->getFlashBag()->add('success', 'Message enregistré, merci pour votre contribution !');
+            return $app->redirect($app['url_generator']->generate('livreDorMessages'));
 		}
 
 		return $app['twig']->render('livredor.html.twig',
@@ -121,7 +123,7 @@ class HomeController{
     //page du livre d'or :
     public function livreDorMessagesAction(Application $app){
         
-        $messages = $app['dao.livredor']->findAll();
+        $messages = $app['dao.livredor']->findLast10();
 
         return $app['twig']->render('livredor.message.html.twig',
             array('messages'=>$messages)

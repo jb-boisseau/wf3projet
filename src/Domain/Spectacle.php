@@ -61,9 +61,9 @@ class Spectacle{
 
     public function getPrice(){
         return $this->price;
-    }
-
-
+    }  
+    
+    
 
 
 

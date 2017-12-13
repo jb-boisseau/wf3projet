@@ -6,7 +6,7 @@
 //page d'accueil :
 $app->match('/', 'WF3\Controller\HomeController::homePageAction')->bind('home');
 
-//page d'accueil :
+//page de paiement :
 $app->get('/payments', 'WF3\Controller\HomeController::paymentsAction')->bind('payments');
 
 //page de reservation :

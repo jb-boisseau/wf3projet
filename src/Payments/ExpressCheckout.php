@@ -8,17 +8,17 @@
 
 namespace wf3\Payments;
 
-use PayPal\Api\Amount;
-use PayPal\Api\Details;
-use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
-use PayPal\Rest\ApiContext;
+use wf3\Payments\Amount;
+use wf3\Payments\Details;
+use wf3\Payments\ItemList;
+use wf3\Payments\Payer;
+use wf3\Payments\Payment;
+use wf3\Payments\RedirectUrls;
+use wf3\Payments\Transaction;
+use wf3\Payments\ApiContext;
 
 
-class ExpressCheckout extends \SKoziel\Silex\PayPalRest\Payments\Payment
+class ExpressCheckout extends wf3\Payments\Payment
 {
 
     public function __construct($currency)

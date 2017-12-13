@@ -8,7 +8,7 @@
                     {{ flashMessage }}
                 </div>
             {% endfor %}
-
+            {{ dump(test)}}
             {{ form_start(spectacleForm)}}
   <section id="contact">
       <div class="container">
@@ -20,7 +20,7 @@
         </div>          	
 
                 {# Titre #}
-            	<div class="form-group">
+            	<div class="form-group"><p style="color:whitesmoke">Titre du spectacle</p>
             	{# affichage des éventuelles erreurs pour le champ titre #}
             	{{ form_errors(spectacleForm.title) }}
             	{# customisation du champ titre #}
@@ -36,7 +36,7 @@
 
 
                 {# Contenu #}
-            	<div class="form-group">
+            	<div class="form-group"><p style="color:whitesmoke">Description</p>
             		{# affichage des éventuelles erreurs pour le champ contenu #}
             		{{ form_errors(spectacleForm.content) }}
             		{# customisation du champ contenu #}
@@ -53,7 +53,7 @@
 
 
                 {# Date du Spectacle #}
-            	<div class="form-group">
+            	<div class="form-group"><p style="color:whitesmoke">Date du spectacle</p>
             		{# affichage des éventuelles erreurs pour le champ contenu #}
             		{{ form_errors(spectacleForm.dateVenue) }}
             		{# customisation du champ contenu #}
@@ -69,7 +69,7 @@
 
 
                 {# Nombre de places Disponibles #}
-            	<div class="form-group">
+            	<div class="form-group"><p style="color:whitesmoke">Nombre de places disponibles</p>
             		{# affichage des éventuelles erreurs pour le champ contenu #}
             		{{ form_errors(spectacleForm.nbTickets) }}
             		{# customisation du champ contenu #}
@@ -85,7 +85,7 @@
 
 
                 {# Lieu de Spectacle #}
-            	<div class="form-group">
+            	<div class="form-group"><p style="color:whitesmoke">Lieu du spectacle</p>
             		{# affichage des éventuelles erreurs pour le champ contenu #}
             		{{ form_errors(spectacleForm.place) }}
             		{# customisation du champ contenu #}
@@ -101,7 +101,7 @@
 
 
                 {# Spectacle ou Stage #}
-            	<div class="form-group">
+            	<div class="form-group"><p style="color:whitesmoke">Type d'évènement</p>
             		{# affichage des éventuelles erreurs pour le champ contenu #}
             		{{ form_errors(spectacleForm.type) }}
             		{# customisation du champ contenu #}
@@ -114,6 +114,22 @@
                         }
                     )}}
             	</div>
+            	
+            	{# Prix #}
+            	<div class="form-group"><p style="color:whitesmoke">Prix</p>
+            		{# affichage des éventuelles erreurs pour le champ contenu #}
+            		{{ form_errors(spectacleForm.price) }}
+            		{# customisation du champ contenu #}
+                    {{ form_widget(spectacleForm.price, 
+                    	{ 
+                    		'attr':  {
+                        		'class'        : 'form-control',
+                        		'placeholder'  : 'Entrez le prix'
+                                
+                            }
+                        }
+                    )}}
+            	</div>
 
             	{{ form_widget(spectacleForm.Enregistrer,
             		{ 
@@ -121,6 +137,8 @@
                         		'class': 'btn btn-default'
                     }}
             	)}}
+            	
+            	<img src="{{asset('uploads/img/'~spectacle.image)}}">
 
 			{{ form_end(spectacleForm)}}
 		{% endblock %}

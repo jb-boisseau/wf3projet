@@ -10,4 +10,4 @@ $app['db.options'] = array(
 	'password' => '',
 );
 
-$app['upload_dir'] = 'web/uploads';
+$app['upload_dir'] = 'uploads/';

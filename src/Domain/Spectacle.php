@@ -13,6 +13,8 @@ class Spectacle{
     private $place;
     private $type;
     private $image;
+    private $price;
+    private $reservation;
 
 
 
@@ -101,10 +103,21 @@ class Spectacle{
             $this->type = $type;  
         }       
     }
-
     public function setImage($image){    
         if(!empty($image)){ 
             $this->image = $image;  
+        }       
+    }
+
+    public function setPrice($price){    
+        if(!empty($price)){ 
+            $this->price = $price;  
+        }       
+    }
+
+    public function setReservation($reservation){    
+        if(!empty($reservation)){ 
+            $this->reservation = $reservation;  
         }       
     }
 }

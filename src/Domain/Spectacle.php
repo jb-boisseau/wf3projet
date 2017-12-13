@@ -62,6 +62,10 @@ class Spectacle{
 
     public function getPrice(){
         return $this->price;
+    }  
+    
+    public function getReservation(){
+        return $this->reservation;
     }
 
 

@@ -22,6 +22,7 @@ class SpectacleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class);
+        
         $builder->add('content', TextareaType::class);
           
         $builder->add('dateVenue', DateType::class, [
@@ -30,7 +31,9 @@ class SpectacleType extends AbstractType
         ]);
         
         $builder->add('nbTickets', TextType::class);
+        
         $builder->add('place', TextType::class);
+        
         $builder->add('image', FileType::class,
                     array(
                         "data_class" => NULL,
@@ -42,7 +45,7 @@ class SpectacleType extends AbstractType
                     )
                 );
         $builder->add('price', TextType::class);
-
+        
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')
         ));

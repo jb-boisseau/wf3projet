@@ -57,9 +57,24 @@
                     )}}
             	</div>
                 
+                {# Lien externe #}
+            	<div class="form-group">
+            		{# affichage des éventuelles erreurs pour le champ "link" #}
+            		{{ form_errors(pressForm.link) }}
+            		{# customisation du champ "link" #}
+                    {{ form_widget(pressForm.link, 
+                    	{ 
+                    		'attr':  {
+                        		'class': 'form-control',
+                        		'placeholder': 'Vous pouvez également rentrer un lien'
+                            }
+                        }
+                    )}}
+            	</div>
+                
             	 {# Image #}
             	<div class="form-group">
-            		{# affichage des éventuelles erreurs pour le champ contenu #}
+            		{# affichage des éventuelles erreurs pour le champ Image #}
             		{{ form_errors(pressForm.image) }}
             		{# customisation du champ contenu #}
                     {{ form_widget(pressForm.image, 

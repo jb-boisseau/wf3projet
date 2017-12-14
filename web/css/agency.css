@@ -131,7 +131,14 @@ body {
       background-color: #212529; }
       #mainNav.navbar-shrink .navbar-brand {
         font-size: 1.25em;
-        padding: 12px 0; } }
+        padding: 12px 0; }
+    header.masthead {
+        height: 1000px;
+    }
+    .intro-lead-in{
+    margin-top: 150px;
+    }
+}
 
 header.masthead {
   text-align: center;
@@ -539,4 +546,8 @@ ul.social-buttons {
 #quisommesnous{
 	text-align: justify;
 
+}
+
+#presse {
+    background: white;
 }

@@ -16,7 +16,7 @@ class AdminController{
 
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    //page d'accueil du back office
+    // Affichage des prochains spectacles
     public function indexAction(Application $app){
         $spectacles = $app['dao.spectacle']->LastShow();
         $articles = $app['dao.press']->findAll();
@@ -128,7 +128,7 @@ class AdminController{
     
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
 
     //modification d'un Spectacle :
     public function updateSpectacleAction(Application $app, Request $request, $id){
@@ -270,7 +270,7 @@ class AdminController{
         $pressForm->handleRequest($request);
 
         if($pressForm->isSubmitted() AND $pressForm->isValid()){
-            $path =__DIR__.'/../..'.$app['upload_dir'];
+            $path =__DIR__.'/../..'.$app['upload_dir'] . 'press';
             $file = $request->files->get('press')['image'];
             $filename       = md5(uniqid()) . '.' . $file->guessExtension();
             $press      -> setImage($filename);
@@ -316,7 +316,7 @@ class AdminController{
                 imagecopyresampled($miniature, $newImage, 0, 0, 0, 0, $newWidth, $newHeight, $imageWidth, $imageHeight);
 
                 //on définit le dossier qui va contenir les miniatures
-                $thumbnailsFolder = 'uploads/thumbnails/';
+                $thumbnailsFolder = 'uploads/press/thumbnails/';
 
                 //on teste l'extension
                 if($extension == 'jpg'){
@@ -329,7 +329,7 @@ class AdminController{
                     imagegif($miniature, $thumbnailsFolder . $filename);
                 }
             $file->move(
-                'uploads/img', $filename);
+                'uploads/press', $filename);
         
             $app['dao.press']->insert($press);
             $app['session']->getFlashBag()->add('success', 'Article de presse ajouté');
@@ -374,7 +374,7 @@ class AdminController{
             //si le formulaire a été soumis
             //on update avec les données envoyées par l'utilisateur
 
-            $path=__DIR__.'/../..'.$app['upload_dir'] . 'imdfgsdfgg/';
+            $path=__DIR__ . '/../..' .$app['upload_dir'] . 'press';
             $file= $request->files->get('press')['image'];
             $filename=md5(uniqid()).'.'.$file->guessExtension();
             //je récupère l'ancienne image
@@ -421,7 +421,7 @@ class AdminController{
                 imagecopyresampled($miniature, $newImage, 0, 0, 0, 0, $newWidth, $newHeight, $imageWidth, $imageHeight);
 
                 //on définit le dossier qui va contenir les miniatures
-                $thumbnailsFolder = 'uploads/thumbnails/';
+                $thumbnailsFolder = 'uploads/press/thumbnails/';
 
                 //on teste l'extension
                 if($extension == 'jpg'){

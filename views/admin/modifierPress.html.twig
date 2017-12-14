@@ -57,9 +57,24 @@
                     )}}
             	</div>
                 
+                 {# Lien #}
+            	<div class="form-group">
+            		{# affichage des éventuelles erreurs pour le champ Lien #}
+            		{{ form_errors(pressForm.link) }}
+            		{# customisation du champ contenu #}
+                    {{ form_widget(pressForm.link, 
+                    	{ 
+                    		'attr':  {
+                        		'class': 'form-control',
+                        		'placeholder': "lien de l'évènement"
+                            }
+                        }
+                    )}}
+            	</div>
+                
             	 {# Image #}
             	<div class="form-group">
-            		{# affichage des éventuelles erreurs pour le champ contenu #}
+            		{# affichage des éventuelles erreurs pour le champ image #}
             		{{ form_errors(pressForm.image) }}
             		{# customisation du champ contenu #}
                     {{ form_widget(pressForm.image, 
@@ -72,6 +87,7 @@
                     )}}
             	</div>
 
+               
             	{{ form_widget(pressForm.Enregistrer,
             		{ 
                     		'attr':  {
@@ -79,7 +95,7 @@
                     }}
             	)}}
 
-            	<img src="{{asset('uploads/img/'~press.image)}}">
+            	<img src="{{asset('uploads/press/'~press.image)}}">
 
 
 			{{ form_end(pressForm)}}

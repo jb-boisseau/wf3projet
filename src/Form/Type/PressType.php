@@ -20,6 +20,7 @@ class PressType extends AbstractType
     {
         $builder->add('title', TextType::class);
         $builder->add('content', TextareaType::class);  
+        $builder->add('link', TextType::class);  
         $builder->add('image', FileType::class,
                     array(
                         "data_class" => NULL,

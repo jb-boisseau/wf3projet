@@ -148,7 +148,7 @@ class AdminController{
             //si le formulaire a été soumis
             //on update avec les données envoyées par l'utilisateur
 
-            $path=__DIR__.'/../..'.$app['upload_dir'] . 'imdfgsdfgg/';
+            $path=__DIR__.'/../..'.$app['upload_dir'];
             $file= $request->files->get('spectacle')['image'];
             $filename=md5(uniqid()).'.'.$file->guessExtension();
             //je récupère l'ancienne image
@@ -172,7 +172,7 @@ class AdminController{
                 }
 
                 //on récupère les dimensions de l'image
-                //largeur
+                // largeur
                 $imageWidth = imagesx($newImage);
                 //hauteur
                 $imageHeight = imagesy($newImage);
@@ -471,5 +471,3 @@ class AdminController{
 
 
 }
-
-

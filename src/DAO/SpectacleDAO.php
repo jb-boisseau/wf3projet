@@ -6,7 +6,7 @@ class SpectacleDAO extends DAO{
     public function LastNineArticles(){
         // On effectue la requete SQL
         // $this->tableName contient le nom de la table
-		$result = $this->bdd->prepare('SELECT * FROM ' . $this->tableName .' ORDER by dateVenue DESC  LIMIT 0,2');
+		$result = $this->bdd->prepare('SELECT * FROM ' . $this->tableName .' ORDER by dateVenue DESC  LIMIT 0,6');
 		$result->execute();
 		$rows = $result->fetchAll(\PDO::FETCH_ASSOC);
         $objectsArray =[];
@@ -30,7 +30,7 @@ class SpectacleDAO extends DAO{
 
     
     public function ArchiveShow(){
-        $result = $this->bdd->prepare('SELECT * FROM ' . $this->tableName. ' ORDER by dateVenue DESC LIMIT 2,1000');
+        $result = $this->bdd->prepare('SELECT * FROM ' . $this->tableName. ' ORDER by dateVenue DESC LIMIT 5,1000');
         $result->execute();
 		$rows = $result->fetchAll(\PDO::FETCH_ASSOC);
         $objectsArray =[];

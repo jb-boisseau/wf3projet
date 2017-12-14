@@ -30,7 +30,7 @@ class SpectacleDAO extends DAO{
 
     
     public function ArchiveShow(){
-        $result = $this->bdd->prepare('SELECT * FROM ' . $this->tableName. ' ORDER by dateVenue DESC LIMIT 5,1000');
+        $result = $this->bdd->prepare('SELECT * FROM ' . $this->tableName. ' ORDER by dateVenue DESC LIMIT 6,1000');
         $result->execute();
 		$rows = $result->fetchAll(\PDO::FETCH_ASSOC);
         $objectsArray =[];

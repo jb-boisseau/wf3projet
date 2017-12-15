@@ -26,9 +26,14 @@ use WF3\Domain\Sale;
 class HomeController{
 
 	// Page d'accueil qui affiche tous les spectacles :
-	public function homePageAction(Application $app){
-        $spectacles = $app['dao.spectacle']->findAll();
-        return $app['twig']->render('index.html.twig', array('spectacles'=>$spectacles));
+	 public function homePageAction(Application $app){
+        
+        $spectacles = $app['dao.spectacle']->LastNineArticles();
+        $archives= $app['dao.spectacle']->ArchiveShow();
+        $presses = $app['dao.press']->findAll();
+        return $app['twig']->render('index.html.twig', array('spectacles'=>$spectacles,
+              'archives'=>$archives,
+              'presses'=>$presses));
     }
 
 
@@ -40,6 +45,7 @@ class HomeController{
 
 	//page contact
 	public function contactAction(Application $app, Request $request){
+        
         $contactForm = $app['form.factory']->create(ContactType::class);
         $contactForm->handleRequest($request);
         

@@ -9,6 +9,7 @@ class Press{
     private $title;
     private $content;
     private $image;
+    private $link;
 
 
 
@@ -31,6 +32,10 @@ class Press{
   
     public function getImage(){
         return $this->image;
+    }
+    
+    public function getLink(){
+        return $this->link;
     }
 
 
@@ -62,6 +67,12 @@ class Press{
     public function setImage($image){    
         if(!empty($image)){ 
             $this->image = $image;  
+        }       
+    }
+    
+    public function setLink($link){    
+        if(!empty($link)){ 
+            $this->link = $link;  
         }       
     }
 }

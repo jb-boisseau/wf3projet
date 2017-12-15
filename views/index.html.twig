@@ -156,12 +156,14 @@
                             <h2 class="text-uppercase">{{spectacle.title}}</h2>
                             <p class="item-intro text-muted">{{spectacle.dateVenue}}</p> <img class="img-fluid d-block mx-auto" src="{{asset('uploads/img/'~spectacle.image)}}" alt="">
                             <p>{{spectacle.content}}
-                                <br> <strong> Mail: lacitescompagnie.reservations@gmail.com ou par téléphone : 06.15.62.26.76</strong> Responsable: Loubna EDNO-BOUFAR ).</p>
+                                <br> <strong> Mail: lacitescompagnie.reservations@gmail.com ou par téléphone : 06.15.62.26.76</strong> Responsable: Loubna EDNO-BOUFAR</p>
                             <ul class="list-inline">
                                 <li>Date: {{spectacle.dateVenue}}</li>
                                 <li>Entrée: {{spectacle.price}}€</li>
                                 <li>Lieu: {{spectacle.place}} </li>
-                               
+                                <li id="mapsapi">
+                                    
+                                </li>
                             </ul>
                             <button class="btn btn-primary" data-dismiss="modal" type="button"> <i class="fa fa-times"></i> Fermer la section</button>
                         </div>

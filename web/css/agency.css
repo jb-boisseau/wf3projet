@@ -549,5 +549,12 @@ ul.social-buttons {
 }
 
 #presse {
-    background: white;
+    background: #f6f6ee;
+   
 }
+    
+#carouselExampleControls{
+    background: #bfbfbf ;
+    width: 100%;
+}
+

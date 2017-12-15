@@ -41,7 +41,8 @@ class SpectacleType extends AbstractType
                             new Assert\Image(
                                 array('maxSize' => '2000K')
                             )
-                        )
+                        ),
+                        'required'=>FALSE
                     )
                 );
         $builder->add('price', TextType::class);

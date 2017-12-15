@@ -23,7 +23,7 @@
                     <p><img src="img/team/4.jpg" id="phototeam1">L'aventure débute en 1999, avec la création d'un simple atelier de théâtre, sur l'impulsion d'une jeune Lormontaise, avec l'aide d'une éducatrice de l'AJHAG (association jeunesse Hauts de Garonne). Un projet se met alors en place en collaboration avec le Service Culture de la ville de Lormont et le metteur en scène Renaud Borderie. Après une année de sensibilisation à la scène, les membres de la Compagnie créent leur première pièce « Les quatre filles du Docteur March » (adaptation du roman de Louisa May Alcott). Cette création collective, comme toutes celles qui suivront, est un juste et fort témoignage de ce qu'ils vivent au quotidien dans leur quartier, leur ville, transfiguré par l'art théâtral. Très motivés, ils décident de continuer cette belle aventure.</p>
                     <p>Depuis 2003, le groupe concrétise son engagement en constituant une association loi 1901 dont l'objet consiste à promouvoir le théâtre, notamment dans les milieux populaires :
                         <ul>
-                            <li>en désacralisant l'Art de la Scène.</li>
+                            <li>En désacralisant l'Art de la Scène.</li>
                             <li>En montrant que le Théâtre peut exprimer la quotidienneté de la vie et qu'il peut permettre un accès à la citoyenneté.</li>
                         </ul>
                     </p>
@@ -79,7 +79,7 @@
         
                         <div class="carousel-item {% if cpt== 1 %}active{% endif %}" style="max-width: 1500px">
                             <a href="#portfolioModal-press{{press.id}}" class="portfolio-link" data-toggle="modal">
-                                <img class="d-block img-fluid" src="{{asset('uploads/press/' ~press.image)}}" >
+                                <center><img class="d-block img-fluid" src="{{asset('uploads/press/' ~press.image)}}" style="height:400px"></center>
                              </a>
                             
                         </div>
@@ -172,10 +172,14 @@
     </div>
 </div> {% endfor %}
 
-<!-- Modal press -->
+
+
+
+
+
 {% for press in presses %}
 <div class="portfolio-modal modal fade" id="portfolioModal-press{{ press.id}}" tabindex="-1" role="dialog" aria-hidden="true">
-
+    
    <div class="modal-dialog">
        <div class="modal-content">
            <div class="close-modal" data-dismiss="modal">
@@ -189,7 +193,8 @@
                        <div class="modal-body">
                            <!-- Project Details Go Here -->
                            <h2 class="text-uppercase">{{press.title}}</h2>
-                           <img class="d-block img-fluid" src="{{asset('uploads/press/' ~press.image)}}" >
+                           <img class="d-block img-fluid" src="{{asset('uploads/press/' ~press.image)}}"> 
+ 
                            <p>{{press.content}}</p>
                            <ul class="list-inline">
                               <li>Titre: {{press.title}}</li>
@@ -202,36 +207,10 @@
            </div>
        </div>
    </div>
-
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">{{press.title}}</h2>
-                            <img class="d-block img-fluid" src="{{asset('uploads/press/' ~press.image)}}" >
-                            <p>{{press.content}}</p>
-                            <ul class="list-inline">
-                               <li>Titre: {{press.title}}</li>
-                                
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button"> <i class="fa fa-times"></i> Fermer l'article de press</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 {% endfor %}
+
 
 {% endblock %}
 

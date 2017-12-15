@@ -21,10 +21,10 @@
                     </div>
                 
                 {% endfor %}
-            
+            {{ dump(data) }}
             <div class="col-md-12 ">
                   
-                {{ form_start(reservationForm, { 'attr': {'class': 'form-horizontal'} }) }}
+                {{ form_start(reservationForm, { 'attr': {'class': 'form-horizontal', 'id': 'reserv-form'} }) }}
                 
                         <div class="form-group">
                             {{ form_label(reservationForm.name, null) }}
@@ -61,12 +61,13 @@
                             </div>
                         </div>
 
-                        <div id='result'></div>
+                        <div id="resultPOST" class="section-subheading text-muted"></div>
 
                         <div class="form-group">
                             <input id="action" type="submit" class="btn btn-primary btn-lg" value="Valider la réservation" />
                         </div>
-                        <div id="resultPOST" class="section-subheading text-muted"></div>
+                        
+                        <div id='result' class="section-subheading text-muted"></div>
                     {{ form_end(reservationForm) }}
                 
                 </div>
@@ -105,9 +106,9 @@
             });
 
 
-
-            //Lors de l'envoi du formulaire, ajoute à la BDD le nombre de places réservées : 
-            $('#action').click(function(event){
+            
+             {# //Lors de l'envoi du formulaire, ajoute à la BDD le nombre de places réservées : 
+            $('#reservation_ticket').change(function(event){
                 //permet d'empêcher la validation du formulaire et le chargement de la page
                 event.preventDefault();
 
@@ -121,15 +122,44 @@
                     data : 'reservation=' + $('#reservation_ticket').val() + '&idSpectacle=' + $('#reservation_spectacles').val(),
                     dataType: 'html',
                     success: function(data){
-                        $('#resultPOST').html(data);
+                        if(data=='ko'){
+                            $('#action').attr('disabled', 'diasbled');
+                            $('#result').append('Il ne reste plus assez de places');
+                        }
                     },
                     error: function() {
                     alert('La requête n\'a pas abouti'); 
                     }
                 });
-            });
+            }); #}
+            
+             //Lors de l'envoi du formulaire, ajoute à la BDD le nombre de places réservées : 
+            $('#action').click(function(event){
+                    //permet d'empêcher la validation du formulaire et le chargement de la page
+                    event.preventDefault();
 
+                    //construction de l'url de la requête avec les paramètres
+                    var url = "{{ path('ajaxReservation') }}";
 
+                    //requête ajax en POST
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data : 'reservation=' + $('#reservation_ticket').val() + '&idSpectacle=' + $('#reservation_spectacles').val(),
+                        dataType: 'html',
+                        success: function(data){
+                            if(data=='ko'){
+                                $('#result').append('Il ne reste plus assez de place.');
+                            }
+                            else{
+                                $('#reserv-form').submit();
+                            }
+                        },
+                        error: function() {
+                        alert('La requête n\'a pas abouti'); 
+                        }
+                    });
+                });
 
 
 

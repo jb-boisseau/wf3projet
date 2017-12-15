@@ -37,8 +37,7 @@ class ReservationType extends AbstractType
         ->add('ticket', TextType::class, array(
             'attr' => array(
                 'placeholder' => 'Entrez le nombre de places souhaitées'
-            ),
-            'constraints' => new Assert\Email()
+            )
             ))
 
            

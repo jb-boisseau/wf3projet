@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa0da643f3d90e37fc5d79b7552cffd4",
+    "content-hash": "37e93f072198b5da8b70ff5b37ad98a2",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -870,6 +870,55 @@
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
             "time": "2017-12-11T23:38:10+00:00"
+        },
+        {
+            "name": "skoziel/silex-paypal",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastiankoziel/silex-paypal.git",
+                "reference": "f1fda3adc9cdbef70e4f4b54211682cf5fa8b123"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastiankoziel/silex-paypal/zipball/f1fda3adc9cdbef70e4f4b54211682cf5fa8b123",
+                "reference": "f1fda3adc9cdbef70e4f4b54211682cf5fa8b123",
+                "shasum": ""
+            },
+            "require": {
+                "paypal/rest-api-sdk-php": ">=1.7",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "silex/silex": ">=2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SKoziel\\Silex\\PayPalRest\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Koziel",
+                    "email": "contact@sebastiankoziel.pl"
+                }
+            ],
+            "description": "Pay Pal Rest Service Provider for Silex 2.0",
+            "keywords": [
+                "paypal",
+                "silex"
+            ],
+            "time": "2016-10-08T11:49:42+00:00"
         },
         {
             "name": "sorien/silex-dbal-profiler",

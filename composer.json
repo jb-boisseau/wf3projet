@@ -14,8 +14,8 @@
         "symfony/config": "~2.8|3.0.*",
         "swiftmailer/swiftmailer": "5.4.*",
         "symfony/validator": "~3.3",
+        "skoziel/silex-paypal": "1.0",
         "paypal/rest-api-sdk-php": ">=1.7"
-
     },
     "autoload": {
         "psr-4": {

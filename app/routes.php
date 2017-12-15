@@ -62,3 +62,10 @@ $app->get('/admin/deletePress/{id}', 'WF3\Controller\AdminController::deletePres
 $app->match('/admin/updatePress/{id}', 'WF3\Controller\AdminController::updatePressAction')
 ->assert('id', '\d+')
 ->bind('updatePress');
+
+//Réservation Success :
+$app->match('/success', 'WF3\Controller\HomeController::successAction')->bind('success');
+
+//Réservation Error :
+$app->match('/error', 'WF3\Controller\HomeController::errorAction')->bind('error');
+

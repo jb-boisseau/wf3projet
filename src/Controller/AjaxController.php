@@ -22,7 +22,7 @@ class AjaxController{
         ));
     }
 
-    //Méthode pour récupérer le nombre de places réservées pour un  spectacle : 
+    // Méthode pour récupérer le nombre de places réservées pour un  spectacle : 
     public function reservationAction(application $app, Request $request){
         //Récupération de l'id du Spectacle :
         $id = $request->request->get('idSpectacle');
@@ -36,10 +36,10 @@ class AjaxController{
         //Vérification que le nombre de tickets demandé ne dépasse pas le nombre de places disponibles :
         if($spectacle->getNbTickets() >= $spectacle->getReservation()){
             $app['dao.spectacle']->update($id, $spectacle);
-            return 'Vous avez bien reservé !';
+            return 'ok';
         }
         else{
-            return 'Il ne reste plus assez de place.';
+            return 'ko';
         }
     } 
 

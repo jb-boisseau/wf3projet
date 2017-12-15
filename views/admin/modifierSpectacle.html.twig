@@ -129,6 +129,25 @@
                         }
                     )}}
             	</div>
+            	
+            	{# Titre #}
+            	<div class="form-group"><p style="color:whitesmoke">Image du spectacle</p>
+            	{# affichage des éventuelles erreurs pour le champ image #}
+            	{{ form_errors(spectacleForm.image) }}
+            	{# customisation du champ image #}
+            	{{ form_widget(spectacleForm.image,
+            		{
+            			'attr': {
+            				'class': 'form-control',
+            			}
+            		}
+            	)}}
+            	</div>
+            	
+            	
+            	<img src="{{asset('uploads/img/'~spectacle.image)}}">
+            	<br>
+            	
 
             	{{ form_widget(spectacleForm.Enregistrer,
             		{ 
@@ -137,7 +156,7 @@
                     }}
             	)}}
             	
-            	<img src="{{asset('uploads/img/'~spectacle.image)}}">
+            	
 
 			{{ form_end(spectacleForm)}}
 		{% endblock %}

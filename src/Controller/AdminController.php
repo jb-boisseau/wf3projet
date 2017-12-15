@@ -150,6 +150,7 @@ class AdminController{
 
             $path=__DIR__.'/../..'.$app['upload_dir'];
             $file= $request->files->get('spectacle')['image'];
+            if($file != NULL){
             $filename=md5(uniqid()).'.'.$file->guessExtension();
             //je récupère l'ancienne image
             $image = $spectacle->getImage();
@@ -183,6 +184,7 @@ class AdminController{
 
                 //on crée la miniature
                 $miniature = imagecreatetruecolor($newWidth, $newHeight);
+            
                 
                 if($extension == 'png'){
                     imagesavealpha($miniature, true);
@@ -212,7 +214,8 @@ class AdminController{
                 'uploads/img', $filename);
             if(file_exists('../'.$app['upload_dir'] . "img/" .$image)){
                 unlink('../'.$app['upload_dir'] . "img/" .$image);
-            }                    
+            }    
+        }
             
                 
 

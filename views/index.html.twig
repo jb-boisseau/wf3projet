@@ -1,7 +1,10 @@
-{% extends "layout.html.twig" %} {% block content %} {# Message de confirmation #} {% for 
-flashMessage in app.session.flashbag.get('success') %}
+{% extends "layout.html.twig" %} {% block content %} 
+{# Message de confirmation #} 
 
-<div class="alert alert-success"> {{ flashMessage }} </div> {% endfor %}
+{% for flashMessage in app.session.flashbag.get('success') %}
+
+<div class="alert alert-success"> {{ flashMessage }} </div> 
+{% endfor %}
 
 <!-- Qui sommes nous -->
 <section id="quisommesnous">

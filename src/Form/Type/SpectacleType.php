@@ -25,8 +25,8 @@ class SpectacleType extends AbstractType
         
         $builder->add('content', TextareaType::class);
           
-        $builder->add('dateVenue', DateType::class, [
-            'widget' => 'single_text',
+        $builder->add('dateVenue', DateTimeType::class, [
+            'date_widget'=> 'choice',
             'attr'   => ['class' => 'js-datepicker'],
         ]);
         

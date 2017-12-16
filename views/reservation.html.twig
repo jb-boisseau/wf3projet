@@ -1,4 +1,4 @@
-{% extends "layout.html.twig" %}
+{% extends "LayoutContact.html.twig" %}
 
 {% block content %}
     <section id="contact">
@@ -21,7 +21,6 @@
                     </div>
                 
                 {% endfor %}
-
             <div class="col-md-12 ">
                   
                 {{ form_start(reservationForm, { 'attr': {'class': 'form-horizontal', 'id': 'reserv-form'} }) }}

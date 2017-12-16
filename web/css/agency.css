@@ -55,7 +55,9 @@ section {
 
 .btn-primary {
   background-color: #1c014c;
-  border-color: #1c014c; }
+  border-color: #1c014c; 
+ 
+}
   .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
     background-color: #6540a5 !important;
     border-color: #6540a5 !important;
@@ -568,4 +570,6 @@ ul.social-buttons {
 }
 
 
-
+#titreresa {
+    font-size: 2rem;
+}

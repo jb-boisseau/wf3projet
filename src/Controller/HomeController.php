@@ -12,7 +12,7 @@ use WF3\Form\Type\ContactType;
 use WF3\Form\Type\UploadImageType;
 use WF3\Domain\PaypalInvoice;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-//Paypal ou je pige que dalle mais ça va le faire !
+// Paypal où je pige que dalle mais ça va le faire !
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
 use PayPal\Api\ExecutePayment;

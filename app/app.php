@@ -63,7 +63,8 @@ $app->register(new Silex\Provider\ValidatorServiceProvider());
 
 //enregistrement du service SwiftMailer
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
-//swiftmailer
+
+//swiftmailer :
 $app['swiftmailer.options'] = array(
     'host' => 'mail.gmx.com',
     'port' => '465',
@@ -73,12 +74,32 @@ $app['swiftmailer.options'] = array(
     'auth_mode' => null
 );
 
+//Service Paypal :
+$app->register(new SKoziel\Silex\PayPalRest\PayPalServiceProvider(), array(
+    'paypal.settings'=>array(
+    'mode'=>'sandbox', //'live' or 'sandbox'(default)
+    'clientID'=>'AU04RLCXMte6BDV2bK13dxWiNdI1wQZDS7M5jajFGMjiiRYPQhBUFd8_CIVxHP92L1-WVjX8A0yF10mR', //Checkout PayPal Documentation for more info
+    'secret'=>'EABju82JQdI1r62sDMEu-IzBngQVDsl1J6Gxfexz0MOhiA3q2avyztK-a6H3v5x6TiGxNDTUO2vF71rq', //Checkout PayPal Documentation for more info
+    'connectionTimeOut'=>30, //Connection time out in seconds, optional, default = 30
+    'logEnabled'=>false, //This parameter is optional, default = true
+    'logdir'=>'logs/', //This parameter is optional, default = ROOT/logs
+    'currency'=>'EUR' //This parameter is optional, default = EUR
+)));
+    
+
 
 $app['dao.spectacle'] = function($app){
 	$spectacleDAO = new WF3\DAO\SpectacleDAO($app['db'], 'spectacle', 'WF3\Domain\Spectacle');
     //on injecte dans $articleDAO une instance de la classe UserDAO : injection de dépendance
     //elle est faite une seule fois, ici
     return $spectacleDAO;
+};
+
+$app['dao.press'] = function($app){
+	$pressDAO = new WF3\DAO\PressDAO($app['db'], 'press', 'WF3\Domain\Press');
+    //on injecte dans $articleDAO une instance de la classe UserDAO : injection de dépendance
+    //elle est faite une seule fois, ici
+    return $pressDAO;
 };
 
 $app['dao.reservation'] = function($app){
@@ -95,9 +116,15 @@ $app['dao.user'] = function($app){
 };
 
 $app['dao.livredor'] = function($app){
-    return new WF3\DAO\UserDAO($app['db'], 'livredor', 'WF3\Domain\Livredor');
-    
+    return new WF3\DAO\LivreDorDAO($app['db'], 'livredor', 'WF3\Domain\Livredor');
+};
 
+$app['dao.paypalInvoice'] = function($app){
+    return new \WF3\DAO\PaypalInvoiceDAO($app['db'], 'paypalInvoice', 'WF3\Domain\paypalInvoice');
+};
+
+$app['dao.sale'] = function($app){
+    return new \WF3\DAO\SaleDAO($app['db'], 'sale', 'WF3\Domain\Sale');
 };
 
 

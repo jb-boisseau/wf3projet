@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>La Cité's Compagnie</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.css" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+
+    <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.css' rel='stylesheet' type='text/css'>
+    <link href='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.css' rel='stylesheet' type='text/css'>
+
+
+</head>
+
+<body id="page-top">
+
+
+
+    <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+
+    <!-------------------------- Barre de NAV  ---------------------------------------->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container"> <a class="navbar-brand js-scroll-trigger" href="{{path('home')}}#page-top">
+          <img src="img/logo.jpg" id="logo">La Cité's Compagnie
+           </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fa fa-bars">
+                
+            </i> 
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#quisommesnous">Qui sommes nous</a>
+                    </li>
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#nosspectacles">Nos spectacles</a>
+                    </li>
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('home')}}#presse">Presse</a>
+                    </li>
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('contact')}}">Contact</a>
+                    </li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{ path('homeAdmin')}}">Administration</a>
+                    </li>
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('logout')}}">Déconnexion</a>
+                    </li>
+                    {% else %}
+
+                    <li class="nav-item"> <a class="nav-link js-scroll-trigger" href="{{path('login')}}">Connexion</a>
+                    </li>
+                    {% endif %} </ul>
+            </div>
+        </div>
+    </nav>
+    <!------------------------ Fin de la NAV --------------------->
+
+
+
+
+
+    <!---------------------------- Header------------------------>
+   
+            <!----------------------- Fin du Header --------------------->
+            
+            
+            
+         
+                    
+                    
+       <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+            
+
+                    
+                    
+                    <!----------------- Block content ------------------------------->
+
+                                    {% block content %} 
+
+                                    {% endblock %}
+    
+                    <!----------------- Fin du Block content ------------------------>
+                    
+                    
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+
+                     <!----------------- Footer--------------------------------------->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"> <span class="copyright">Copyright &copy; WF3 Bordeaux  2017</span> </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#"> <i class="fa fa-twitter"></i> </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/La-Cit%C3%A9s-Compagnie-682670995137311/" target="_blank"> <i class="fa fa-facebook"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      
+    </footer>
+
+    
+                    <!----------------- Fin du Footer -------------------------------->
+
+
+
+
+
+
+
+
+
+   
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+    <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.min.js' rel='javascript' type='text/javascript'></script>
+    <script src='http://www.bootstrap-year-calendar.com/download/v1.0.1/bootstrap-year-calendar.js' rel='javascript' type='text/javascript'>
+    </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    
+    {% block javascript %}
+    {% endblock %}
+    
+    
+       <!-----------------------------------ON N'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+    
+    
+</body>
+
+  
+    <!-----------------------------------ON N 'Y TOUCHE PAS MORRAY!!!!!-------------------------------->
+
+</html>

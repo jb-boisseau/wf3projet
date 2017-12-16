@@ -26,12 +26,9 @@
                     <div class="col-md-12">
                         <ul>
                             {% for spectacle in spectacles %}
-
                             <li>
-
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        
+                                    <div class="col-md-3">
                                         <p class="section-subheading text-muted"> 
                                            <br>Titre : {{ spectacle.title}}
                                            <br>Date : {{ spectacle.dateVenue}}
@@ -41,18 +38,51 @@
                                             <br> Prix: {{ spectacle.price}}€
                                             <br>
                                         </p>
+                                        <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> ||| <a href="{{ path('updateSpectacle', {id: spectacle.id})}}">Modifier</a>     
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <img src="uploads/img/{{spectacle.image}}" style="width:200px">
                                     </div>
-
-
-
-                                    <a href="{{ path('deleteSpectacle', {id: spectacle.id})}}">Supprimer</a> ||| <a href="{{ path('updateSpectacle', {id: spectacle.id})}}">Modifier</a>
-
                                 </div>
                             </li>
-                            <br> {% endfor %}
+                            <br> 
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-lg-12 text-center">
+                            <a href="{{ path('ajoutPress') }}">
+                                <button class="btn btn-primary btn-xl text-uppercase">Ajout d'un Article de presse</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            {% for article in articles %}
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p class="section-subheading text-muted"> 
+                                           <br>Titre : {{ article.title}}
+                                           <br>Contenu : {{ article.content}}
+                                            <br>
+                                        </p>
+                                        <a href="{{ path('deletePress', {id: article.id})}}">Supprimer</a> ||| <a href="{{ path('updatePress', {id: article.id})}}">Modifier</a>     
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="uploads/press/{{article.image}}" style="width:200px">
+                                    </div>
+                                </div>
+                            </li>
+                            <br> 
+                            {% endfor %}
                         </ul>
                     </div>
 

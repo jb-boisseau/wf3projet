@@ -22,18 +22,6 @@ class ReservationType extends AbstractType
        
     $builder
 
-        
-        ->add('dateVenue', DateType::class, array('label'=>'Date du Spectacle',
-                'widget' => 'single_text'
-                ))
-        
-        ->add('email', TextType::class, array('label'=>'Entrer votre Email',
-                'attr' => array(
-                    'placeholder' => 'Inscrivez votre adresse EMAIL'
-                ))) 
-            
-        ->add('nbTicket', ChoiceType::class, array('label'=>'Nombre de Ticket','choices'=> array(1=>1,2=>2,3=>3,4=>4,5=>5
-                )))
 
 
         //Email :
@@ -49,8 +37,7 @@ class ReservationType extends AbstractType
         ->add('ticket', TextType::class, array(
             'attr' => array(
                 'placeholder' => 'Entrez le nombre de places souhaitées'
-            ),
-            'constraints' => new Assert\Email()
+            )
             ))
 
            

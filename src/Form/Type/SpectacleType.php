@@ -22,15 +22,18 @@ class SpectacleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('title', TextType::class);
+        
         $builder->add('content', TextareaType::class);
           
-        $builder->add('dateVenue', DateType::class, [
-            'widget' => 'single_text',
+        $builder->add('dateVenue', DateTimeType::class, [
+            'date_widget'=> 'choice',
             'attr'   => ['class' => 'js-datepicker'],
         ]);
         
         $builder->add('nbTickets', TextType::class);
+        
         $builder->add('place', TextType::class);
+        
         $builder->add('image', FileType::class,
                     array(
                         "data_class" => NULL,
@@ -38,11 +41,12 @@ class SpectacleType extends AbstractType
                             new Assert\Image(
                                 array('maxSize' => '2000K')
                             )
-                        )
+                        ),
+                        'required'=>FALSE
                     )
                 );
         $builder->add('price', TextType::class);
-
+        
         $builder->add('type', ChoiceType::class, array(
             'choices' => array('Spectacle' => 'spectacle', 'Stage' => 'stage')
         ));

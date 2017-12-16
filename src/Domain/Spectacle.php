@@ -14,7 +14,6 @@ class Spectacle{
     private $type;
     private $image;
     private $price;
-
     private $reservation;
 
 
@@ -56,10 +55,15 @@ class Spectacle{
         return $this->image;
     }
 
-    public function getPrice(){
-        return $this->price;
+    public function getReservation(){
+        return $this->reservation;
     }
 
+    public function getPrice(){
+        return $this->price;
+    }  
+    
+    
 
 
 

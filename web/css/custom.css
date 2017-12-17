@@ -29,3 +29,15 @@
 #connexion.footer {
     font-size: 0.2em;
 }
+
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 50px !important;
+    height: 50px !important;
+    background-color: #4f0561;
+     
+}
+
+#carouselExampleControls {
+   background: #a3373700 !important;
+}

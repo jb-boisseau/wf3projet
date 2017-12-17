@@ -6,13 +6,7 @@
 .form-control{
     display: flex !important;
 }
-/* 
 
-alors ça, c'est ce qu'on appelle le CSS (pour cascading styling sheet)
-le css permet de mettre en forme les éléments html de vos pages et ça c'est bien 
-du coup on peut faire des trucs pas trop moches ou approchant, d'un coup d'un seul en restant assis
-sur son culcul
-*/
 #spectacle_dateVenue_date_year{
     
 }
@@ -34,6 +28,4 @@ sur son culcul
 
 #connexion.footer {
     font-size: 0.2em;
-    
-
 }

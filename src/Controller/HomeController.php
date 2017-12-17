@@ -309,10 +309,6 @@ class HomeController{
         );
     }
     
-    //Utilisation de Paypal :
-    public function achatPaypalAction(Application $app, Request $request){
-        
-    }
 
 
 }
